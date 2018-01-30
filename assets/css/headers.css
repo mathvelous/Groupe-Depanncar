@@ -1,0 +1,84 @@
+header{
+    height: 10vh;
+    background-color: #130F26;
+    display: flex;
+    align-items: center;
+    padding: 0 15px 0 15px;
+    justify-content: space-between;
+}
+
+.logo a img{
+    height: 6vh;
+    width: auto;
+}
+
+.chat{
+    height: 5vh;
+    width: auto;
+}
+
+nav{
+
+}
+
+#form-conn{
+    display: flex;
+    height: 50%;
+    width: 40%;
+}
+
+#form-conn .form-control{
+    margin-right: 15px;
+}
+
+.form-control{
+    border-radius: 30px;
+    border: none;
+
+}
+
+
+.form-control[placeholder]{
+    font-size: 0.8em;
+}
+
+.btn-primary{
+    height: 100%;
+    border-radius: 30px;
+    background-color: transparent;
+    border: 1px solid #ffffff;
+    font-size: 0.8em;
+}
+
+.btn-primary:hover{
+    background-color: #ffffff;
+    border: 1px solid #ffffff;
+    color:#130F26;
+}
+
+.menu{
+    display: flex;
+    align-items: center;
+}
+
+.menu ul{
+    list-style: none;
+    display: flex;
+    margin: 0 20px 0 20px;
+    padding: 0;
+}
+
+.menu ul li{
+    list-style: none;
+    padding: 20px;
+}
+
+.menu ul li a{
+    text-decoration: none;
+    color: white;
+}
+
+.menu ul li a:hover{
+    text-decoration: none;
+    color: white;
+}
