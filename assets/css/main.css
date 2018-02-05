@@ -35,10 +35,8 @@ h1{
     text-transform: uppercase;
 }
 
-.white-square{
+.rgba-white{
     background-color: rgba(255, 255, 255, 0.5);
-    height: 300px;
-    width: 100%;
     border-radius: 15px;
 }
 
@@ -46,4 +44,73 @@ h1{
     position: relative;
     top: 50%;
     transform: translateY(-50%);
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+#form-mecano{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+#form-mecano input{
+    background-color: transparent;
+    border-bottom: 1px solid #130F26;
+    border-radius: 0;
+    padding: 0;
+}
+
+
+#form-mecano button[type='submit']{
+    margin-top: 30px;
+    border-radius: 0;
+    border: none;
+    width: 100%;
+    background-color: #130F26;
+    padding: 10px;
+    font-size: 1.1em;
+    letter-spacing: 1px;
+    color: #ffffff;
+}
+
+#form-mecano .form-group{
+    margin-bottom: 30px;
+}
+
+#form-mecano form{
+    margin-top: 30px;
+}
+
+form .first-part{
+    display: flex;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+form .first-part .form-group:first-child{
+    margin-right: 50px;
+}
+
+form .first-part .form-group{
+    width: 95%
+}
+
+form .last-part{
+    width: 45%;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.choice-form{
+    display: flex;
+    justify-content: space-around;
+    padding: 30px;
+}
+
+.choice-home{
+    display: flex;
+    justify-content: space-around;
+    padding: 30px;
 }
