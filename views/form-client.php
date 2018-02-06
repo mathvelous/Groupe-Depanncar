@@ -13,9 +13,9 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 </head>
 <body>
-<?php
-include 'header-conn.html';
-?>
+    <?php
+        include 'header-conn.html';
+    ?>
 <main class="container-fluid">
     <div id="form-mecano" class="rgba-white">
         <div class="choice-form">

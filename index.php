@@ -36,7 +36,7 @@
             <div class="col-6">
                 <div class="rgba-white choice-home">
                     <a href="views/form-mecano.php">Mécanicien</a>
-                    <a href="views/form-client.php">Client</a>
+                    <a href="views/map-client.php">Client</a>
                 </div>
             </div>
         </div>
