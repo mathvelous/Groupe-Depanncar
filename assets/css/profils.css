@@ -1,0 +1,30 @@
+aside{
+    background-color: #130F26;
+    height:90vh;
+}
+
+aside article{
+    margin: 15% 0;
+}
+
+.pp-large{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.pp-meca{
+    background:url(../images/mecano-profil.jpg);
+    background-repeat:no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+main{
+    background: none;
+    background-color: white;
+}
+
+.checked {
+    color: #06D0FF;
+}

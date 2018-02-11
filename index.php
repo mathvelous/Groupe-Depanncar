@@ -8,6 +8,7 @@
     <title>Depanncar</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/headers.css">
 
@@ -36,7 +37,7 @@
             <div class="col-6">
                 <div class="rgba-white choice-home">
                     <a href="views/form-mecano.php">Mécanicien</a>
-                    <a href="views/map-client.php">Client</a>
+                    <a href="views/map.html">Client</a>
                 </div>
             </div>
         </div>
