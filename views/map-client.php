@@ -1,349 +1,91 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="fr">
 <head>
-    <title>Geolocation</title>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-    <meta charset="utf-8">
-    <style>
-        /* Always set the map height explicitly to define the size of the div
-         * element that contains the map. */
-        #map {
-            height: 100%;
-        }
-        /* Optional: Makes the sample page fill the window. */
-        html, body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
-    </style>
+<<<<<<< HEAD
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Depanncar</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/main.css">
+
+    <script
+        src="http://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 </head>
 <body>
     <?php
-        include 'header-conn.html';
+        include 'header-client.html';
     ?>
-<div id="map"></div>
-<script>
-    // Note: This example requires that you consent to location sharing when
-    // prompted by your browser. If you see the error "The Geolocation service
-    // failed.", it means you probably did not give permission for the browser to
-    // locate you.
+    <div class="map">
+        <?php
+            include 'map.html';
+        ?>
+        <div class="bgform">
+            <form class="text-center p30">
+                <h1 class="mb20">Déclarez votre panne</h1>
+                <h2>S’agit-il d’un problème esthétique ou mécanique ?</h2>
+                <div id="step1">
+                    <input id="radio1" type="radio" name="step1">
+                    <label class="label-radio step1-a" for="radio1" data-step="aesthetic"><img class="checked" src="../assets/images/aesthetic.jpg" alt=""></label>
 
-    function initMap() {
+                    <input id="radio2" type="radio" name="step1">
+                    <label class="label-radio step1-b" for="radio2" data-step="mecanic"><img src="../assets/images/bg-home.jpg" alt=""></label>
+                </div>
+            </form>
+        </div>
+        <div id="steps" class="bg-gradient">
 
-        var map = new google.maps.Map(document.getElementById('map'), {
-            center: {lat: -34.397, lng: 150.644},
-            zoom: 15,
-            disableDefaultUI: true
-        });
-        var infoWindow = new google.maps.InfoWindow({map: map});
+        </div>
+    </div>
 
-        // Try HTML5 geolocation.
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function(position) {
-                var pos = {
-                    lat: position.coords.latitude,
-                    lng: position.coords.longitude
-                };
+    <script>
+    $(document).ready(function () {
 
-                infoWindow.setPosition(pos);
-                infoWindow.setContent('Location found.');
-                map.setCenter(pos);
-            }, function() {
-                handleLocationError(true, infoWindow, map.getCenter());
-            });
-        } else {
-            // Browser doesn't support Geolocation
-            handleLocationError(false, infoWindow, map.getCenter());
-        }
-        var styledMapType = new google.maps.StyledMapType(
-            /* coller ici le js style de map */
-            [
-              {
-                "elementType": "geometry",
-                "stylers": [
-                  {
-                    "color": "#242f3e"
-                  },
-                  {
-                    "saturation": 30
-                  },
-                  {
-                    "lightness": -60
-                  },
-                  {
-                    "weight": 2
-                  }
-                ]
-              },
-              {
-                "elementType": "labels.text.fill",
-                "stylers": [
-                  {
-                    "color": "#284d61"
-                  }
-                ]
-              },
-              {
-                "elementType": "labels.text.stroke",
-                "stylers": [
-                  {
-                    "color": "#284d61"
-                  },
-                  {
-                    "saturation": 100
-                  },
-                  {
-                    "lightness": -35
-                  },
-                  {
-                    "weight": 0.5
-                  }
-                ]
-              },
-              {
-                "featureType": "administrative",
-                "elementType": "geometry",
-                "stylers": [
-                  {
-                    "visibility": "off"
-                  }
-                ]
-              },
-              {
-                "featureType": "administrative.land_parcel",
-                "elementType": "labels",
-                "stylers": [
-                  {
-                    "color": "#4c94b5"
-                  },
-                  {
-                    "visibility": "off"
-                  }
-                ]
-              },
-              {
-                "featureType": "administrative.locality",
-                "elementType": "labels.text.fill",
-                "stylers": [
-                  {
-                    "color": "#437e9d"
-                  }
-                ]
-              },
-              {
-                "featureType": "poi",
-                "stylers": [
-                  {
-                    "visibility": "off"
-                  }
-                ]
-              },
-              {
-                "featureType": "poi",
-                "elementType": "labels.text",
-                "stylers": [
-                  {
-                    "visibility": "off"
-                  }
-                ]
-              },
-              {
-                "featureType": "poi",
-                "elementType": "labels.text.fill",
-                "stylers": [
-                  {
-                    "color": "#3c718e"
-                  }
-                ]
-              },
-              {
-                "featureType": "poi.park",
-                "elementType": "geometry",
-                "stylers": [
-                  {
-                    "color": "#222d28"
-                  }
-                ]
-              },
-              {
-                "featureType": "poi.park",
-                "elementType": "labels.text.fill",
-                "stylers": [
-                  {
-                    "color": "#223020"
-                  }
-                ]
-              },
-              {
-                "featureType": "road",
-                "elementType": "geometry",
-                "stylers": [
-                  {
-                    "color": "#38414e"
-                  }
-                ]
-              },
-              {
-                "featureType": "road",
-                "elementType": "geometry.stroke",
-                "stylers": [
-                  {
-                    "color": "#212a37"
-                  }
-                ]
-              },
-              {
-                "featureType": "road",
-                "elementType": "labels.icon",
-                "stylers": [
-                  {
-                    "visibility": "off"
-                  }
-                ]
-              },
-              {
-                "featureType": "road",
-                "elementType": "labels.text.fill",
-                "stylers": [
-                  {
-                    "color": "#9ca5b3"
-                  }
-                ]
-              },
-              {
-                "featureType": "road.arterial",
-                "elementType": "labels",
-                "stylers": [
-                  {
-                    "visibility": "off"
-                  }
-                ]
-              },
-              {
-                "featureType": "road.highway",
-                "elementType": "geometry",
-                "stylers": [
-                  {
-                    "color": "#182435"
-                  }
-                ]
-              },
-              {
-                "featureType": "road.highway",
-                "elementType": "geometry.stroke",
-                "stylers": [
-                  {
-                    "color": "#1f2835"
-                  }
-                ]
-              },
-              {
-                "featureType": "road.highway",
-                "elementType": "labels",
-                "stylers": [
-                  {
-                    "visibility": "off"
-                  }
-                ]
-              },
-              {
-                "featureType": "road.highway",
-                "elementType": "labels.text.fill",
-                "stylers": [
-                  {
-                    "color": "#1a3777"
-                  }
-                ]
-              },
-              {
-                "featureType": "road.local",
-                "stylers": [
-                  {
-                    "visibility": "off"
-                  }
-                ]
-              },
-              {
-                "featureType": "road.local",
-                "elementType": "labels",
-                "stylers": [
-                  {
-                    "visibility": "off"
-                  }
-                ]
-              },
-              {
-                "featureType": "transit",
-                "stylers": [
-                  {
-                    "visibility": "off"
-                  }
-                ]
-              },
-              {
-                "featureType": "transit",
-                "elementType": "geometry",
-                "stylers": [
-                  {
-                    "color": "#2f3948"
-                  }
-                ]
-              },
-              {
-                "featureType": "transit.station",
-                "elementType": "labels.text.fill",
-                "stylers": [
-                  {
-                    "color": "#174377"
-                  },
-                  {
-                    "weight": 1
-                  }
-                ]
-              },
-              {
-                "featureType": "water",
-                "elementType": "geometry",
-                "stylers": [
-                  {
-                    "color": "#17263c"
-                  }
-                ]
-              },
-              {
-                "featureType": "water",
-                "elementType": "labels.text.fill",
-                "stylers": [
-                  {
-                    "color": "#515c6d"
-                  }
-                ]
-              },
-              {
-                "featureType": "water",
-                "elementType": "labels.text.stroke",
-                "stylers": [
-                  {
-                    "color": "#17263c"
-                  }
-                ]
-              }
-            ]
-            /* fin du js style de map */
-        )
-        map.mapTypes.set('styled_map', styledMapType);
-        map.setMapTypeId('styled_map');
-    }
+        $('.label-radio').on('click', function () {
+            if($(this).attr('data-step') == 'aesthetic'){
+                $('#step1').fadeOut(500, function () {
+                    $('form').append("<div id=\"step2\">\n" +
+                        "                    <input id=\"radio1\" type=\"radio\" name=\"step2\">\n" +
+                        "                    <label class=\"label-radio step1-a\" for=\"radio1\" data-step=\"autobody\"><img class=\"checked\" src=\"../assets/images/bg-home.jpg\" alt=\"\"></label>\n" +
+                        "\n" +
+                        "                    <input id=\"radio2\" type=\"radio\" name=\"step2\">\n" +
+                        "                    <label class=\"label-radio step1-b\" for=\"radio2\" data-step=\"other\"><img src=\"../assets/images/bg-home.jpg\" alt=\"\"></label>\n" +
+                        "                </div>")
+                })
+            }else{
+                $('#step1').fadeOut(500, function () {
+                    $('form').append("<div id=\"step2\">\n" +
+                        "                    <input id=\"radio1\" type=\"radio\" name=\"step2\">\n" +
+                        "                    <label class=\"label-radio step1-a\" for=\"radio1\" data-step=\"autobody\"><img class=\"checked\" src=\"../assets/images/bg-home.jpg\" alt=\"\"></label>\n" +
+                        "\n" +
+                        "                    <input id=\"radio2\" type=\"radio\" name=\"step2\">\n" +
+                        "                    <label class=\"label-radio step1-b\" for=\"radio2\" data-step=\"other\"><img src=\"../assets/images/bg-home.jpg\" alt=\"\"></label>\n" +
+                        "                </div>")
+                })
+            }
+        })
 
-    function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-        infoWindow.setPosition(pos);
-        infoWindow.setContent(browserHasGeolocation ?
-            'Error: The Geolocation service failed.' :
-            'Error: Your browser doesn\'t support geolocation.');
-    }
-</script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAVxxP5MUCFNJOvrSqvwOIa1KXWfdXfn1g&callback=initMap"
-        async defer></script>
+       /* $('.step1-a').on('click',function () {
+            $('#step1').fadeOut(500, function () {
+                $('form').append("" +
+                    "<div id=\"step2\">\n" +
+                    "<input id=\"checkBox\" type=\"radio\" name=\"step2\">\n" +
+                    "<label class=\"label-radio step2-a\" for=\"checkBox\"><img class=\"checked\" src=\"../assets/images/bg-home.jpg\" alt=\"\"></label>\n" +
+                    "\n" +
+                    "<input id=\"checkBox\" type=\"radio\" name=\"step2\">\n" +
+                    "<label class=\"label-radio step2-b\" for=\"checkBox\"><img src=\"../assets/images/bg-home.jpg\" alt=\"\"></label>\n" +
+                    "</div>")
+            })
+        })*/
+    }) 
+    </script>
 </body>
 </html>
