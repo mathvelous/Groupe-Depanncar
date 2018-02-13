@@ -20,24 +20,22 @@
     <?php
          include 'header-conn.html';
     ?>
-    <main class="container-fluid">
-        <div id="Form" class="rgba-white">
-            <div class="choice-form">
-                <a href="#">Mécanicien</a>
-                <a href="form-client.php">Client</a>
-            </div>
-            <form id="formMecano">
-                <div class="first-part">
+    <main class="container-fluid map">
+        <?php
+            include 'map.html';
+        ?>
+        <div class="col-6"></div>
+        <div class="form-div">
+            <form class="bgform col-6 center">
+                <div>
                     <div class="form-group">
                         <label for="firstname">Prénom</label>
                         <input name="firstname" type="text" class="form-control" id="firstname" aria-describedby="firstnameHelp">
                     </div>
                     <div class="form-group">
                         <label for="lastname">Nom</label>
-                        <input name="lastname" type="text" class="form-control" id="lastname" aria-describedby="lastnameHelp">
+                        <input name="lastname"  type="text" class="form-control" id="lastname" aria-describedby="lastnameHelp">
                     </div>
-                </div>
-                <div class="last-part">
                     <div class="form-group">
                         <label for="email">Email</label>
                         <input name="email" type="email" class="form-control" id="email" aria-describedby="emailHelp">
@@ -54,8 +52,8 @@
                         <input name="checkbox" type="checkbox" class="form-check-input" id="checkbox">
                         <label class="form-check-label" for="checkbox">J’accepte les Conditions Générales</label>
                     </div>
+                    <button type="submit" class="btn">Enregistrer</button>
                 </div>
-                <button type="submit" class="btn">Enregistrer</button>
             </form>
         </div>
     </main>

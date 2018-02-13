@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="fr">
 <head>
-<<<<<<< HEAD
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -28,22 +27,25 @@
         <?php
             include 'map.html';
         ?>
-        <div class="bgform">
-            <form class="text-center p30">
-                <h1 class="mb20">Déclarez votre panne</h1>
-                <h2>S’agit-il d’un problème esthétique ou mécanique ?</h2>
-                <div id="step1">
-                    <input id="radio1" type="radio" name="step1">
-                    <label class="label-radio step1-a" for="radio1" data-step="aesthetic"><img class="checked" src="../assets/images/aesthetic.jpg" alt=""></label>
-
-                    <input id="radio2" type="radio" name="step1">
-                    <label class="label-radio step1-b" for="radio2" data-step="mecanic"><img src="../assets/images/bg-home.jpg" alt=""></label>
-                </div>
-            </form>
+        <button class="buttonForm">bla</button>
+        <div class="col-6">
         </div>
-        <div id="steps" class="bg-gradient">
+            <div class="bgform2 col-6">
+                <form class="text-center p30">
+                    <h1 class="mb20">Déclarez votre panne</h1>
+                    <h2>S’agit-il d’un problème esthétique ou mécanique ?</h2>
+                    <div id="step1">
+                        <input id="radio1" type="radio" name="step1">
+                        <label class="label-radio step1-a" for="radio1" data-step="aesthetic"><img class="checked" src="../assets/images/aesthetic.jpg" alt=""></label>
 
-        </div>
+                        <input id="radio2" type="radio" name="step1">
+                        <label class="label-radio step1-b" for="radio2" data-step="mecanic"><img src="../assets/images/bg-home.jpg" alt=""></label>
+                    </div>
+                </form>
+            </div>
+            <div id="steps" class="bg-gradient">
+
+            </div>
     </div>
 
     <script>
@@ -71,6 +73,11 @@
                         "                </div>")
                 })
             }
+        })
+
+        $('.buttonForm').on('click',function () {
+            $('.bgform2').animate({right:'5vw'}, 700)
+            $('#steps').animate({right:'0'},900)
         })
 
        /* $('.step1-a').on('click',function () {
