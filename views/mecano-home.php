@@ -35,10 +35,88 @@ include 'header-mecano.html';
             </a>
         </article>
         <article class="text-white text-center">
-            <h6>Nom Prénom</h6>
-            <p>adresse</p>
-            <p>téléphone</p>
-            <p>mail</p>
+            <?php
+                $servername = "localhost";
+                $username = "root";
+                $password = "root";
+                $dbname = "depanncar";
+
+                try {
+                    //for windows
+                    //$db = new PDO(‘mysql:host=’ . $servername . ‘;dbname=’ . $dbname . ‘;charset=utf8’, $username, ‘’);
+                    //for mac
+                    $db = new PDO(‘mysql:host=’ . $servername . ‘;dbname=’ . $dbname . ‘;charset=utf8’, $username, $password);
+                       } catch(Exception $e) {
+                    die(“Error: “. $e);
+                       }
+
+                $save = $db->query(‘SELECT content FROM card ORDER BY position’);
+
+                       while ($data = $save->fetch()){
+                           ?>
+                               <h6>
+                                   <?php
+                                   echo $this[‘firstname’] . " " . $this[‘lastname’];
+                                   ?>
+                               </h6>
+                           <?php
+                       }
+                   ?>
+            <p><?php
+                $servername = "localhost";
+                $username = "root";
+                $password = "root";
+                $dbname = "depanncar";
+
+                try {
+                    //for windows
+                    //$db = new PDO(‘mysql:host=’ . $servername . ‘;dbname=’ . $dbname . ‘;charset=utf8’, $username, ‘’);
+                    //for mac
+                    $db = new PDO(‘mysql:host=’ . $servername . ‘;dbname=’ . $dbname . ‘;charset=utf8’, $username, $password);
+                       } catch(Exception $e) {
+                    die(“Error: “. $e);
+                       }
+
+                $save = $db->query(‘SELECT content FROM card ORDER BY position’);
+
+                       while ($data = $save->fetch()){
+                ?>
+            <p>
+                <?php
+                echo $this[‘phone’];
+                ?>
+            </p>
+        <?php
+        }
+        ?>
+
+            <?php
+            $servername = "localhost";
+            $username = "root";
+            $password = "root";
+            $dbname = "depanncar";
+
+            try {
+                //for windows
+                //$db = new PDO(‘mysql:host=’ . $servername . ‘;dbname=’ . $dbname . ‘;charset=utf8’, $username, ‘’);
+                //for mac
+                $db = new PDO(‘mysql:host=’ . $servername . ‘;dbname=’ . $dbname . ‘;charset=utf8’, $username, $password);
+                       } catch(Exception $e) {
+                die(“Error: “. $e);
+                       }
+
+            $save = $db->query(‘SELECT content FROM card ORDER BY position’);
+
+                       while ($data = $save->fetch()){
+                           ?>
+                               <p>
+                                   <?php
+                                   echo $this[‘email’];
+                                   ?>
+                               </p>
+                           <?php
+                       }
+                   ?>
         </article>
         <a href="#" class="text-white">Mes projets</a>
     </aside>
