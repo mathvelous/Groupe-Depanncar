@@ -83,7 +83,7 @@ body{
     text-decoration: none;
 }
 
-.choice-home a;hover{
+.choice-home a:hover{
     color: #ffffff;
     text-decoration: none;
 }

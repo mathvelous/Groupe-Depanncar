@@ -26,7 +26,7 @@
         ?>
         <div class="col-6"></div>
         <div class="form-div">
-            <form class="bgform col-6 center">
+            <form id="formClient" class="bgform col-6 center">
                 <div>
                     <div class="form-group">
                         <label for="firstname">Prénom</label>
@@ -46,7 +46,7 @@
                     </div>
                     <div class="form-group">
                         <label for="phone">Téléphone</label>
-                        <input name="phone" type="text" class="form-control" id="phone" aria-describedby="phoneHelp">
+                        <input name="phone" type="text" class="form-control" id="phone">
                     </div>
                     <div class="form-check">
                         <input name="checkbox" type="checkbox" class="form-check-input" id="checkbox">

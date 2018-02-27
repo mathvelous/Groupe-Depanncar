@@ -9,15 +9,17 @@
     <link rel="stylesheet" href="../assets/css/headers.css">
     <link rel="stylesheet" href="../assets/css/mecano-home.css">
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script
+            src="http://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-
 </head>
 <body>
 <?php
-include 'header-mecano.html';
+    include 'header-mecano.html';
 ?>
 <main class="container-fluid p-0 d-flex">
     <aside class="col-sm-2 p-4 d-flex flex-column align-items-center">
@@ -36,61 +38,6 @@ include 'header-mecano.html';
         </article>
         <article class="text-white text-center">
             <?php
-                $servername = "localhost";
-                $username = "root";
-                $password = "root";
-                $dbname = "depanncar";
-
-                try {
-                    //for windows
-                    //$db = new PDO(‘mysql:host=’ . $servername . ‘;dbname=’ . $dbname . ‘;charset=utf8’, $username, ‘’);
-                    //for mac
-                    $db = new PDO(‘mysql:host=’ . $servername . ‘;dbname=’ . $dbname . ‘;charset=utf8’, $username, $password);
-                       } catch(Exception $e) {
-                    die(“Error: “. $e);
-                       }
-
-                $save = $db->query(‘SELECT content FROM card ORDER BY position’);
-
-                       while ($data = $save->fetch()){
-                           ?>
-                               <h6>
-                                   <?php
-                                   echo $this[‘firstname’] . " " . $this[‘lastname’];
-                                   ?>
-                               </h6>
-                           <?php
-                       }
-                   ?>
-            <p><?php
-                $servername = "localhost";
-                $username = "root";
-                $password = "root";
-                $dbname = "depanncar";
-
-                try {
-                    //for windows
-                    //$db = new PDO(‘mysql:host=’ . $servername . ‘;dbname=’ . $dbname . ‘;charset=utf8’, $username, ‘’);
-                    //for mac
-                    $db = new PDO(‘mysql:host=’ . $servername . ‘;dbname=’ . $dbname . ‘;charset=utf8’, $username, $password);
-                       } catch(Exception $e) {
-                    die(“Error: “. $e);
-                       }
-
-                $save = $db->query(‘SELECT content FROM card ORDER BY position’);
-
-                       while ($data = $save->fetch()){
-                ?>
-            <p>
-                <?php
-                echo $this[‘phone’];
-                ?>
-            </p>
-        <?php
-        }
-        ?>
-
-            <?php
             $servername = "localhost";
             $username = "root";
             $password = "root";
@@ -98,25 +45,25 @@ include 'header-mecano.html';
 
             try {
                 //for windows
-                //$db = new PDO(‘mysql:host=’ . $servername . ‘;dbname=’ . $dbname . ‘;charset=utf8’, $username, ‘’);
+                //$db = new PDO('mysql:host=' . $servername . ';dbname=' . $dbname . ';charset=utf8', $username, '');
                 //for mac
-                $db = new PDO(‘mysql:host=’ . $servername . ‘;dbname=’ . $dbname . ‘;charset=utf8’, $username, $password);
-                       } catch(Exception $e) {
-                die(“Error: “. $e);
-                       }
+                $bdd = new PDO('mysql:host=' . $servername . ';dbname=' . $dbname . ';charset=utf8', $username, $password);
+            } catch(Exception $e) {
+                die("Error: ". $e);
+            }
 
-            $save = $db->query(‘SELECT content FROM card ORDER BY position’);
+            $save = $bdd->query('SELECT firstname FROM mecano');
 
-                       while ($data = $save->fetch()){
-                           ?>
-                               <p>
-                                   <?php
-                                   echo $this[‘email’];
-                                   ?>
-                               </p>
-                           <?php
-                       }
-                   ?>
+            while ($data = $save->fetch()){
+                ?>
+                <p>
+                    <?php
+                        echo $data['firstname'];
+                    ?>
+                </p>
+                <?php
+            }
+            ?>
         </article>
         <a href="#" class="text-white">Mes projets</a>
     </aside>
@@ -133,7 +80,6 @@ include 'header-mecano.html';
                     <div>
                         <h5>Nom client</h5>
                         <p>date de demande <br>type de voiture</p>
-
                     </div>
                     <div class="car-picture"><img src="../assets/images/car-pic.jpg" alt="#"></div>
                 </div>
@@ -154,5 +100,8 @@ include 'header-mecano.html';
         </section>
     </section>
 </main>
+<script>
+
+</script>
 </body>
 </html>
