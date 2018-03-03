@@ -4,7 +4,6 @@
     url('../font/bebasneue_bold-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-
 }
 
 .container-fluid{
@@ -105,8 +104,8 @@ h2{
     position: relative;
 }
 
-    /**** Form inscription ****/
 
+/**** Form inscription ****/
 
 .form-div #formClient input, .form-div #formMecano input{
     background-color: transparent;
@@ -146,9 +145,13 @@ h2{
     align-items: center;
 }
 
-    /*******/
+/*******/
 
-    /***** Form déclarez votre panne *****/
+/***** Form déclarez votre panne *****/
+
+#form-panne div{
+    display: flex;
+}
 
 .bgform2{
     background-color: #ffffff;
@@ -181,14 +184,14 @@ input[type="radio"]{
     opacity: 0;
 }
 
-.label-radio img{
-    margin-top: 30px;
-    width: 200px;
-    height: 100%;
+.label-radio{
+    position: relative;
 }
 
-.checked{
-    border: 3px solid #000000;
+.label-radio img{
+    margin-top: 30px;
+    width: 95%;
+    height: auto;
 }
 
 .buttonForm{
@@ -202,6 +205,100 @@ input[type="radio"]{
     background-color: transparent;
 }
 
-    /********/
+.text-form{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%);
+    transform: translateX(-50%);
+    color: #ffffff;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-family: 'bebasBold';
+    letter-spacing: 2px;
+}
+
+.form-section{
+    display: flex;
+    justify-content: center;
+}
+
+.form-section:last-child{
+    margin-top: -20px;
+}
+
+.form-section label img{
+    width: 100%;
+    height: auto;
+}
+
+.column{
+    display: flex;
+    flex-direction: column;
+}
+
+#step4{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 30px;
+}
+
+#step4 div{
+    margin-top: 25px;
+}
+
+#step4 div div{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+#step4 div div:last-child{
+    margin-right: 20px;
+}
+
+#step4 input[type='text'], #step4 input[type='number']{
+    border: none;
+    border-bottom: 2px solid #130F26;
+    margin: 0;
+}
+
+#step4 label{
+    color: #130F26;
+    text-transform: uppercase;
+    font-family: 'bebasBold', sans-serif;
+    letter-spacing: 0.5px;
+    margin-bottom: 0;
+}
+
+#step4 label[for='carImage']{
+    border: 2px solid #130F26;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+#step4 input[type='file']{
+    display: none;
+}
+
+#step4 label[for="submit"]{
+    margin-top: 8%;
+    background-color: #130F26;
+    border: none;
+    color: white;
+    padding: 8px 30px;
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+
+#step4 input[type="submit"]{
+    display: none;
+}
+
+/********/
+
 
 

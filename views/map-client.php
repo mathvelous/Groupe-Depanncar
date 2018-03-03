@@ -28,71 +28,60 @@
             include 'map.html';
         ?>
         <button class="buttonForm">bla</button>
-        <div class="col-6">
+        <div class="col-5">
         </div>
-            <div class="bgform2 col-6">
-                <form class="text-center p30">
+            <div class="bgform2 col-7">
+                <form id="form-panne" class="text-center p30">
                     <h1 class="mb20">Déclarez votre panne</h1>
-                    <h2>S’agit-il d’un problème esthétique ou mécanique ?</h2>
+                    <h2></h2>
                     <div id="step1">
-                        <input id="radio1" type="radio" name="step1">
-                        <label class="label-radio step1-a" for="radio1" data-step="aesthetic"><img class="checked" src="../assets/images/aesthetic.jpg" alt=""></label>
+                        <input id="radio1" type="radio" name="step1" value="Problème esthétique">
+                        <label class="label-radio" for="radio1" data-step="aesthetic">
+                            <p class="text-form">Esthétique</p>
+                            <img src="../assets/images/aesthetic.jpg" alt="">
+                        </label>
 
-                        <input id="radio2" type="radio" name="step1">
-                        <label class="label-radio step1-b" for="radio2" data-step="mecanic"><img src="../assets/images/bg-home.jpg" alt=""></label>
+                        <input id="radio2" type="radio" name="step1" value="Problème mécanique">
+                        <label class="label-radio" for="radio2" data-step="mecanic">
+                            <p class="text-form">Mécanique</p>
+                            <img src="../assets/images/mecanic.jpg" alt="">
+                        </label>
                     </div>
                 </form>
             </div>
             <div id="steps" class="bg-gradient">
-
             </div>
     </div>
 
+
+    <script src="../assets/js/form-panne.js"></script>
     <script>
-    $(document).ready(function () {
-
-        $('.label-radio').on('click', function () {
-            if($(this).attr('data-step') == 'aesthetic'){
-                $('#step1').fadeOut(500, function () {
-                    $('form').append("<div id=\"step2\">\n" +
-                        "                    <input id=\"radio1\" type=\"radio\" name=\"step2\">\n" +
-                        "                    <label class=\"label-radio step1-a\" for=\"radio1\" data-step=\"autobody\"><img class=\"checked\" src=\"../assets/images/bg-home.jpg\" alt=\"\"></label>\n" +
-                        "\n" +
-                        "                    <input id=\"radio2\" type=\"radio\" name=\"step2\">\n" +
-                        "                    <label class=\"label-radio step1-b\" for=\"radio2\" data-step=\"other\"><img src=\"../assets/images/bg-home.jpg\" alt=\"\"></label>\n" +
-                        "                </div>")
-                })
-            }else{
-                $('#step1').fadeOut(500, function () {
-                    $('form').append("<div id=\"step2\">\n" +
-                        "                    <input id=\"radio1\" type=\"radio\" name=\"step2\">\n" +
-                        "                    <label class=\"label-radio step1-a\" for=\"radio1\" data-step=\"autobody\"><img class=\"checked\" src=\"../assets/images/bg-home.jpg\" alt=\"\"></label>\n" +
-                        "\n" +
-                        "                    <input id=\"radio2\" type=\"radio\" name=\"step2\">\n" +
-                        "                    <label class=\"label-radio step1-b\" for=\"radio2\" data-step=\"other\"><img src=\"../assets/images/bg-home.jpg\" alt=\"\"></label>\n" +
-                        "                </div>")
-                })
-            }
-        })
-
-        $('.buttonForm').on('click',function () {
-            $('.bgform2').animate({right:'5vw'}, 700)
-            $('#steps').animate({right:'0'},900)
-        })
-
-       /* $('.step1-a').on('click',function () {
-            $('#step1').fadeOut(500, function () {
-                $('form').append("" +
-                    "<div id=\"step2\">\n" +
-                    "<input id=\"checkBox\" type=\"radio\" name=\"step2\">\n" +
-                    "<label class=\"label-radio step2-a\" for=\"checkBox\"><img class=\"checked\" src=\"../assets/images/bg-home.jpg\" alt=\"\"></label>\n" +
-                    "\n" +
-                    "<input id=\"checkBox\" type=\"radio\" name=\"step2\">\n" +
-                    "<label class=\"label-radio step2-b\" for=\"checkBox\"><img src=\"../assets/images/bg-home.jpg\" alt=\"\"></label>\n" +
-                    "</div>")
+        $(document).ready(function () {
+            // slide to the left function
+            $('.buttonForm').on('click',function () {
+                $('.bgform2').animate({right:'5vw'}, 700)
+                $('#steps').animate({right:'0'},900)
             })
-        })*/
-    }) 
+
+            // Ajax
+            var form = $('#form-panne');
+
+            form.submit(function(e){
+                e.preventDefault()
+
+                var data = $(this).serialize();
+                $.ajax({
+                    method : 'POST',
+                    url : 'bddPanne.php',
+                    data : data, /*{name = valeur}*/
+                    dataType :"json",
+                    success: function(){
+
+                    }
+                })
+            })
+
+        })
     </script>
 </body>
 </html>
