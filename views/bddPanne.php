@@ -1,11 +1,11 @@
 <?php
-print_r($_POST);
 /**
  * Created by PhpStorm.
  * User: mathildehenry
  * Date: 08/02/2018
  * Time: 10:45
  */
+
 
     $servername = "localhost";
     $username = "root";
@@ -24,3 +24,6 @@ print_r($_POST);
     $conn = $bdd->query("INSERT INTO panne (step1, step2, step3, more, car, year, carImage) VALUES ('" . $_POST['step1'] . "', '" . $_POST['step2'] . "', '" . $_POST['step3'] . "', '" . $_POST['more'] . "', '" . $_POST['car'] . "', '" . $_POST['year'] . "', '" . $_POST['carImage'] . "')");
     // use exec() because no results are returned
     //echo "New record created successfully";
+
+
+

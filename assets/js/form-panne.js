@@ -13,11 +13,11 @@ $(document).ready(function () {
             "                        <div class=\"row justify-content-between\">\n" +
             "                            <div>\n" +
             "                                <label for=\"car\">Type de voiture</label>\n" +
-            "                                <input type=\"text\" name=\"car\" id=\"car\">\n" +
+            "                                <input type=\"text\" name=\"car\" id=\"car\" required>\n" +
             "                            </div>\n" +
             "                            <div>\n" +
             "                                <label for=\"year\">Année de mise en circulation</label>\n" +
-            "                                <input type=\"number\" name=\"year\" id=\"year\">\n" +
+            "                                <input type=\"number\" name=\"year\" id=\"year\" required>\n" +
             "                            </div>\n" +
             "                            <div>\n" +
             "                                <label for=\"carImage\">Ajouter une photo</label>\n" +
@@ -34,7 +34,6 @@ $(document).ready(function () {
 
     // function for the form
     $('.label-radio').on('click', function () { // aesthetic part
-        console.log($(this).attr('data-step'))
         if ($(this).attr('data-step') == 'aesthetic') {
             $('#step1').fadeOut(500, function () {
                 $('#form-panne h2').html("S’agit-il d’un problème de carosserie ou d’autre chose ?")
@@ -51,6 +50,7 @@ $(document).ready(function () {
                     "                            <img src=\"../assets/images/other1.jpg\" alt=\"\">\n" +
                     "                        </label>\n" +
                     "                    </div>")
+                $('#circle2').addClass('circle-border')
 
 
                 $('.label-radio').on('click', function () {
@@ -70,11 +70,13 @@ $(document).ready(function () {
                                 "                            <img src=\"../assets/images/small.jpg\" alt=\"\">\n" +
                                 "                        </label>\n" +
                                 "                    </div>")
+                            $('#circle3').addClass('circle-border')
 
                             $('.label-radio').on('click', function () {
                                 $('#step3').fadeOut(500, function () {
                                     textStep4()
                                     appendStep4()
+                                    $('#circle4').addClass('circle-border')
                                 })
                             })
 
@@ -115,12 +117,14 @@ $(document).ready(function () {
                                 "                        </label>\n" +
                                 "                        </div>\n" +
                                 "             </div>")
+                            $('#circle3').addClass('circle-border')
 
 
                             $('.label-radio').on('click', function () {
                                 $('#step3').fadeOut(500, function () {
                                     textStep4()
                                     appendStep4()
+                                    $('#circle4').addClass('circle-border')
                                 })
                             })
 
@@ -145,6 +149,7 @@ $(document).ready(function () {
                     "                            <img src=\"../assets/images/other2.jpg\" alt=\"\">\n" +
                     "                        </label>\n" +
                     "                    </div>")
+                $('#circle2').addClass('circle-border')
 
                 $('.label-radio').on('click', function () {
                     if ($(this).attr('data-step') == 'engine') {
@@ -163,11 +168,13 @@ $(document).ready(function () {
                                 "                            <img src=\"../assets/images/no.jpg\" alt=\"\">\n" +
                                 "                        </label>\n" +
                                 "                    </div>")
+                            $('#circle3').addClass('circle-border')
 
                             $('.label-radio').on('click', function () {
                                 $('#step3').fadeOut(500, function () {
                                     textStep4()
                                     appendStep4()
+                                    $('#circle4').addClass('circle-border')
                                 })
                             })
 
@@ -208,11 +215,13 @@ $(document).ready(function () {
                                 "                        </label>\n" +
                                 "                        </div>\n" +
                                 "                    </div>")
+                            $('#circle3').addClass('circle-border')
 
                             $('.label-radio').on('click', function () {
                                 $('#step3').fadeOut(500, function () {
                                     textStep4()
                                     appendStep4()
+                                    $('#circle4').addClass('circle-border')
                                 })
                             })
 

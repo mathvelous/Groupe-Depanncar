@@ -40,12 +40,14 @@ header{
     background-color: transparent;
     border: 1px solid #ffffff;
     font-size: 0.8rem;
+    transition: all ease 0.3s;
 }
 
 .btn-primary:hover{
     background-color: #ffffff;
     border: 1px solid #ffffff;
     color:#130F26;
+    transition: all ease 0.3s;
 }
 
 .menu{

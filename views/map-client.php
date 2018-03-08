@@ -53,19 +53,19 @@
                 </form>
             </div>
             <div id="steps" class="bg-gradient">
-                <div id="circle1" class="circle-border">
+                <div id="circle1">
                     <p>1</p>
                 </div>
                 <div class="steps-line"></div>
-                <div class="circle-border">
+                <div id="circle2">
                     <p>2</p>
                 </div>
                 <div class="steps-line"></div>
-                <div class="circle-border">
+                <div id="circle3">
                     <p>3</p>
                 </div>
                 <div class="steps-line"></div>
-                <div class="circle-border">
+                <div id="circle4">
                     <p>4</p>
                 </div>
             </div>
@@ -106,7 +106,6 @@
                     data : data, /*{name = valeur}*/
                     dataType :"json",
                     success: function(){
-
                     }
                 })
             })
