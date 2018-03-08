@@ -27,29 +27,47 @@
         <?php
             include 'map.html';
         ?>
-        <button class="buttonForm">bla</button>
+        <button class="declare">Déclarez votre panne</button>
         <div class="col-5">
         </div>
             <div class="bgform2 col-7">
-                <form id="form-panne" class="text-center p30">
+                <form id="form-panne" class="text-center m-3">
+                    <div class="cross">
+                        <img src="../assets/images/cross.png" alt="cross">
+                    </div>
                     <h1 class="mb20">Déclarez votre panne</h1>
                     <h2></h2>
                     <div id="step1">
                         <input id="radio1" type="radio" name="step1" value="Problème esthétique">
                         <label class="label-radio" for="radio1" data-step="aesthetic">
                             <p class="text-form">Esthétique</p>
-                            <img src="../assets/images/aesthetic.jpg" alt="">
+                            <img src="../assets/images/aesthetic.jpg" alt="image formulaire Depanncar">
                         </label>
 
                         <input id="radio2" type="radio" name="step1" value="Problème mécanique">
                         <label class="label-radio" for="radio2" data-step="mecanic">
                             <p class="text-form">Mécanique</p>
-                            <img src="../assets/images/mecanic.jpg" alt="">
+                            <img src="../assets/images/mecanic.jpg" alt="image formulaire Depanncar">
                         </label>
                     </div>
                 </form>
             </div>
             <div id="steps" class="bg-gradient">
+                <div id="circle1" class="circle-border">
+                    <p>1</p>
+                </div>
+                <div class="steps-line"></div>
+                <div class="circle-border">
+                    <p>2</p>
+                </div>
+                <div class="steps-line"></div>
+                <div class="circle-border">
+                    <p>3</p>
+                </div>
+                <div class="steps-line"></div>
+                <div class="circle-border">
+                    <p>4</p>
+                </div>
             </div>
     </div>
 
@@ -58,10 +76,22 @@
     <script>
         $(document).ready(function () {
             // slide to the left function
-            $('.buttonForm').on('click',function () {
+            $('.declare').on('click',function () {
                 $('.bgform2').animate({right:'5vw'}, 700)
-                $('#steps').animate({right:'0'},900)
+                $('#steps').animate({right:'0'},900, function () {
+                    $('#circle1').addClass('circle-border')
+                })
+                $(this).fadeOut(500)
             })
+
+
+           $('.cross').on('click',function () {
+               $('.bgform2').animate({right:'-100%'},700)
+               $('#steps').animate({right:'-5vw'},700)
+               $('.declare').fadeIn(500)
+           })
+
+
 
             // Ajax
             var form = $('#form-panne');

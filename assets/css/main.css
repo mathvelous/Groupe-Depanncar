@@ -15,6 +15,13 @@
     border-radius: 0;
 }
 
+.vertical-line{
+    width: 2px;
+    background-color: #130F26;
+    height:260px;
+    margin-top: 10px;
+}
+
 a{
     font-family: 'bebasBold';
     text-transform: uppercase;
@@ -77,9 +84,9 @@ body{
     display: flex;
     justify-content: center;
     color: #ffffff;
-    background-color: #130F26;
     padding: 10px 50px 10px 50px;
     text-decoration: none;
+    position: relative;
 }
 
 .choice-home a:hover{
@@ -92,6 +99,7 @@ h1{
     text-transform: uppercase;
     font-size: 1.8rem;
     color: #130F26;
+    line-height: 40px;
 }
 
 h2{
@@ -149,10 +157,6 @@ h2{
 
 /***** Form déclarez votre panne *****/
 
-#form-panne div{
-    display: flex;
-}
-
 .bgform2{
     background-color: #ffffff;
     width: 100%;
@@ -178,6 +182,113 @@ h2{
     right: -5vw;
     top: 0;
     z-index: 20;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#steps p{
+    color: white;
+    margin: 0;
+    padding: 15px;
+}
+
+.steps-line{
+    background-color: #00b3ff;
+    width: 2px;
+    height: 20vh;
+}
+
+.circle-border {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    border-radius: 100%;
+    background: none;
+    border: 0;
+    box-sizing: border-box;
+    position: relative;
+    vertical-align: middle;
+}
+
+.circle-border::before, .circle-border::after{
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    left: 0;
+}
+
+.circle-border::before{
+    border: 2px solid transparent;
+}
+
+.circle-border::after{
+    border: 0 solid transparent;
+}
+
+.circle-border:hover::before{
+    animation-name: beforeBorder ;
+    animation-duration: 3s;
+}
+
+.circle-border:hover::after{
+    animation-duration: 3s;
+    animation-name: afterBorder;
+}
+
+/*@keyframes beforeBorder{
+    0%   {
+        transition: border-top-color 0s linear,
+        border-right-color 0s linear 0s,
+        border-bottom-color 0s linear 0s;
+    }
+    100% {
+    border-top-color: #ffffff;
+    border-right-color: #ffffff;
+    border-bottom-color: #ffffff;
+        transition: border-top-color 0.15s linear,
+        border-right-color 0.15s linear 0.1s,
+        border-bottom-color 0.15s linear 0.2s;
+    }
+}*/
+
+@keyframes beforeBorder{
+    0%   {
+        border-top-color: transparent;
+        border-right-color: transparent;
+        border-bottom-color: transparent;
+    }
+    100% {
+        border-top-color: #ffffff;
+        border-right-color: #ffffff;
+        border-bottom-color: #ffffff;
+        transition: border-top-color 0.15s linear,
+        border-right-color 0.15s linear 0.1s,
+        border-bottom-color 0.15s linear 0.2s;
+    }
+}
+
+@keyframes afterBorder{
+    0%   {
+        border-top: 2px solid transparent;
+        border-left-width: 0px;
+        border-right-width: 0px;
+        transform: rotate(0deg);
+    }
+    100% {
+        border-top: 2px solid #ffffff;
+        border-left-width: 2px;
+        border-right-width: 2px;
+        transform: rotate(270deg);
+        transition: transform 0.4s linear 0s, border-left-width 0s linear 0.35s;
+    }
 }
 
 input[type="radio"]{
@@ -194,15 +305,23 @@ input[type="radio"]{
     height: auto;
 }
 
-.buttonForm{
+.declare{
     position: absolute;
     z-index: 10;
-    color: white;
+    color: #00b3ff;
     top:550px;
     left: 50%;
+    transform: translateX(-50%);
     border: 1px solid #00b3ff;
     padding: 10px 20px 10px 20px;
     background-color: transparent;
+    transition: all ease 1s;
+}
+
+.declare:hover{
+    color: #ffffff;
+    border: 1px solid #00b3ff;
+    background-color: #00b3ff;
 }
 
 .text-form{
@@ -216,6 +335,10 @@ input[type="radio"]{
     text-transform: uppercase;
     font-family: 'bebasBold';
     letter-spacing: 2px;
+}
+
+#form-panne div:last-child{
+    display: flex;
 }
 
 .form-section{
@@ -256,6 +379,10 @@ input[type="radio"]{
     margin-left: 20px;
 }
 
+label{
+    cursor: pointer;
+}
+
 #step4 div div:last-child{
     margin-right: 20px;
 }
@@ -285,7 +412,7 @@ input[type="radio"]{
 }
 
 #step4 label[for="submit"]{
-    margin-top: 8%;
+    margin-top: 20px;
     background-color: #130F26;
     border: none;
     color: white;
@@ -298,6 +425,11 @@ input[type="radio"]{
     display: none;
 }
 
+.cross{
+    display: flex;
+    justify-content: flex-end;
+
+}
 /********/
 
 

@@ -34,11 +34,19 @@
         </header>
         <main class="container-fluid bg-home">
             <div class="row align-items-center d-flex main-home">
-                <div class="bg-white-home">
-                    <h1>Vous souhaitez réparer votre voiture au meilleur prix?</h1>
+                <div class="bg-white-home text-center">
+                    <h1 class="py-3">profitez de notre réseau unique de mécaniciens et de clients.
+                        <br />dite nous qui vous êtes</h1>
                     <div class="choice-home">
-                        <a href="views/form-mecano.php">Mécanicien</a>
-                        <a href="views/map.html">Client</a>
+                        <a href="views/map-client.php">
+                            <p class="text-form">Client</p>
+                            <img src="assets/images/client.jpg" alt="">
+                        </a>
+                        <div class="vertical-line"></div>
+                        <a href="views/form-mecano.php">
+                            <p class="text-form">Mécanicien</p>
+                            <img src="assets/images/mecano.jpg" alt="">
+                        </a>
                     </div>
                 </div>
             </div>
