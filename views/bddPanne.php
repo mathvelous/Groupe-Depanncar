@@ -20,8 +20,8 @@
     } catch(Exception $e) {
         die("Error: ". $e);
     }
-
-    $conn = $bdd->query("INSERT INTO panne (step1, step2, step3, more, car, year, carImage) VALUES ('" . $_POST['step1'] . "', '" . $_POST['step2'] . "', '" . $_POST['step3'] . "', '" . $_POST['more'] . "', '" . $_POST['car'] . "', '" . $_POST['year'] . "', '" . $_POST['carImage'] . "')");
+    print_r($_POST);
+    $conn = $bdd->query("INSERT INTO panne (step1, step2, step3, more, car, year) VALUES ('" . $_POST['step1'] . "', '" . $_POST['step2'] . "', '" . $_POST['step3'] . "', '" . $_POST['more'] . "', '" . $_POST['car'] . "', '" . $_POST['year'] . "')");
     // use exec() because no results are returned
     //echo "New record created successfully";
 

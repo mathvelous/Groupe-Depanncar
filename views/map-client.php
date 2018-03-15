@@ -89,6 +89,16 @@
                $('.bgform2').animate({right:'-100%'},700)
                $('#steps').animate({right:'-5vw'},700)
                $('.declare').fadeIn(500)
+               $('#step2').remove()
+               $('#step3').remove()
+               $('#step4').remove()
+               $('#step1').fadeIn(500, function () {
+                   $('#form-panne h2').html("S’agit-il d’un problème esthétique ou mécanique ?")
+                   $('#circle2').removeClass('circle-border')
+                   $('#circle3').removeClass('circle-border')
+                   $('#circle4').removeClass('circle-border')
+               })
+
            })
 
 
@@ -104,8 +114,11 @@
                     method : 'POST',
                     url : 'bddPanne.php',
                     data : data, /*{name = valeur}*/
-                    dataType :"json",
                     success: function(){
+                        var a = document.createElement('a')
+                        a.setAttribute('href', 'client-profil.php')
+                        a.click();
+                        
                     }
                 })
             })
