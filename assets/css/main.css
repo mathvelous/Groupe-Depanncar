@@ -419,6 +419,68 @@ label{
     justify-content: flex-end;
 
 }
+
+/**** Modal ****/
+
+.modal-body{
+    display: flex;
+}
+
+.modal-content{
+    display: flex;
+    justify-content: center;
+    border: none;
+}
+
+.modal-content input{
+}
+
+.modal-header{
+    display: flex;
+    justify-content: center;
+}
+
+.modal-footer, .modal-header{
+    border: none;
+}
+
+.form-control{
+    margin-right: 15px;
+}
+
+.form-control{
+    border: none;
+}
+
+.form-control[placeholder]{
+    font-size: 0.8rem;
+}
+
+.modal-body input{
+    border-bottom: 2px solid #130F26;
+}
+
+.btn-secondary{
+    height: 100%;
+    background-color: transparent;
+    border: 2px solid #130F26;
+    font-size: 0.8rem;
+    transition: all ease 0.3s;
+    color: #130F26;
+    padding: 10px 20px 10px 20px;
+}
+
+.btn-secondary:last-child{
+    margin-left: 15px;
+}
+
+.btn-secondary:hover{
+    background-color: #130F26;
+    border: 2px solid #130F26;
+    color: #ffffff;
+    transition: all ease 0.3s;
+}
+
 /********/
 
 

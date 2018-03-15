@@ -69,6 +69,29 @@
                     <p>4</p>
                 </div>
             </div>
+
+        <button type="button" class="btn btn-primary"  >
+            Launch demo modal
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <form id="form-modal" class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Connectez vous</h5>
+                    </div>
+                    <div class="modal-body">
+                        <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                        <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-secondary">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
 
 
@@ -102,7 +125,6 @@
            })
 
 
-
             // Ajax
             var form = $('#form-panne');
 
@@ -115,10 +137,27 @@
                     url : 'bddPanne.php',
                     data : data, /*{name = valeur}*/
                     success: function(){
-                        var a = document.createElement('a')
+                        /*var a = document.createElement('a')
                         a.setAttribute('href', 'client-profil.php')
-                        a.click();
-                        
+                        a.click();*/
+
+                    }
+                })
+            })
+
+            //Modal
+            var form = $('#form-modal');
+
+            form.submit(function(e){
+                e.preventDefault()
+
+                var data = $(this).serialize();
+                $.ajax({
+                    method : 'POST',
+                    url : 'bddConn.php',
+                    data : data, /*{name = valeur}*/
+                    success: function(){
+                        console.log('titi')
                     }
                 })
             })

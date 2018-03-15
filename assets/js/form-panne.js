@@ -8,7 +8,7 @@ $(document).ready(function () {
 
     // function for append the step4
     var appendStep4 = function () {
-        $('form').append("<div id=\"step4\">\n" +
+        $('#form-panne').append("<div id=\"step4\">\n" +
             "                        <textarea name=\"more\" id=\"\" cols=\"30\" rows=\"10\"></textarea>\n" +
             "                        <div class=\"row justify-content-between\">\n" +
             "                            <div>\n" +
@@ -26,7 +26,7 @@ $(document).ready(function () {
             "                        </div>\n" +
             "                        <div class=\"d-flex justify-content-center\">\n" +
             "                            <label for=\"submit\">Validez votre panne</label>\n" +
-            "                            <input type=\"submit\" id=\"submit\">\n" +
+            "                            <input type=\"submit\" data-toggle=\"modal\" data-target=\"#exampleModal\" id=\"submit\">\n" +
             "                        </div>\n" +
             "                    </div>")
     }
@@ -37,7 +37,7 @@ $(document).ready(function () {
         if ($(this).attr('data-step') == 'aesthetic') {
             $('#step1').fadeOut(500, function () {
                 $('#form-panne h2').html("S’agit-il d’un problème de carosserie ou d’autre chose ?")
-                $('form').append("<div id=\"step2\">\n" +
+                $('#form-panne').append("<div id=\"step2\">\n" +
                     "                        <input id=\"step2_1\" type=\"radio\" name=\"step2\" value=\"sur la corosserie\">\n" +
                     "                        <label class=\"label-radio\" for=\"step2_1\" data-step=\"autobody\">\n" +
                     "                            <p class=\"text-form\">Carosserie</p>\n" +
@@ -57,7 +57,7 @@ $(document).ready(function () {
                     if ($(this).attr('data-step') == 'autobody') {
                         $('#step2').fadeOut(500, function () {
                             $('#form-panne h2').html('Est ce que c’est une grosse ou petite rayure/choque ?')
-                            $('form').append("<div id=\"step3\">\n" +
+                            $('#form-panne').append("<div id=\"step3\">\n" +
                                 "                        <input id=\"step3_1\" type=\"radio\" name=\"step3\" value=\"Grosse rayure ou dégat\">\n" +
                                 "                        <label class=\"label-radio\" for=\"step3_1\" data-step=\"step3\">\n" +
                                 "                            <p class=\"text-form\">Grosse</p>\n" +
@@ -88,7 +88,7 @@ $(document).ready(function () {
                     if ($(this).attr('data-step') == 'other1') {
                         $('#step2').fadeOut(500, function () {
                             $('#form-panne h2').html('Quelle partie de votre voiture est concernée ?')
-                            $('form').append("<div id=\"step3\" class=\"column\">\n" +
+                            $('#form-panne').append("<div id=\"step3\" class=\"column\">\n" +
                                 "                    <div class=\"form-section\">\n" +
                                 "                        <input id=\"step3_1\" type=\"radio\" name=\"step3\" value=\"Prolème de roues\">\n" +
                                 "                        <label class=\"label-radio\" for=\"step3_1\" data-step=\"step3\">\n" +
@@ -136,7 +136,7 @@ $(document).ready(function () {
         } else if ($(this).attr('data-step') == 'mecanic') { // mecanic part
             $('#step1').fadeOut(500, function () {
                 $('#form-panne h2').html("S’agit-il du moteur ?")
-                $('form').append("<div id=\"step2\">\n" +
+                $('#form-panne').append("<div id=\"step2\">\n" +
                     "                        <input id=\"step2_1\" type=\"radio\" name=\"step2\" value=\"sur le moteur\">\n" +
                     "                        <label class=\"label-radio\" for=\"step2_1\" data-step=\"engine\">\n" +
                     "                            <p class=\"text-form\">Moteur</p>\n" +
@@ -155,7 +155,7 @@ $(document).ready(function () {
                     if ($(this).attr('data-step') == 'engine') {
                         $('#step2').fadeOut(500, function () {
                             $('#form-panne h2').html('La voiture démare t-elle ?')
-                            $('form').append("<div id=\"step3\">\n" +
+                            $('#form-panne').append("<div id=\"step3\">\n" +
                                 "                        <input id=\"step3_1\" type=\"radio\" name=\"step3\" value=\"Le moteur démare\">\n" +
                                 "                        <label class=\"label-radio\" for=\"step3_1\" data-step=\"step3\">\n" +
                                 "                            <p class=\"text-form\">Oui</p>\n" +
@@ -186,7 +186,7 @@ $(document).ready(function () {
                     if ($(this).attr('data-step') == 'other2') {
                         $('#step2').fadeOut(500, function () {
                             $('#form-panne h2').html("D’où semble venir le problème ?")
-                            $('form').append("<div id=\"step3\" class=\"column\">\n" +
+                            $('#form-panne').append("<div id=\"step3\" class=\"column\">\n" +
                                 "                        <div class=\"form-section\">\n" +
                                 "                        <input id=\"step3_1\" type=\"radio\" name=\"step3\" value=\"Prolème d'électronique\">\n" +
                                 "                        <label class=\"label-radio\" for=\"step3_1\" data-step=\"step3\">\n" +
