@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!doctype html>
 <html lang="fr">
 <head>
@@ -94,7 +97,7 @@
         </div>
     </div>
 
-
+    <script src="../assets/js/cookie.js"></script>
     <script src="../assets/js/form-panne.js"></script>
     <script>
         $(document).ready(function () {
@@ -125,25 +128,21 @@
            })
 
 
-            // Ajax
-            var form = $('#form-panne');
+            // Ajax form panne bdd
+            function formPanne() {
+                var data = $('#form-panne').serialize();
+                    $.ajax({
+                        method : 'POST',
+                        url : 'bddPanne.php',
+                        data : data, /*{name = valeur}*/
+                        success: function(){
+                            var a = document.createElement('a')
+                            a.setAttribute('href', 'client-profil.php')
+                            a.click();
 
-            form.submit(function(e){
-                e.preventDefault()
-
-                var data = $(this).serialize();
-                $.ajax({
-                    method : 'POST',
-                    url : 'bddPanne.php',
-                    data : data, /*{name = valeur}*/
-                    success: function(){
-                        /*var a = document.createElement('a')
-                        a.setAttribute('href', 'client-profil.php')
-                        a.click();*/
-
-                    }
-                })
-            })
+                        }
+                    })
+            }
 
             //Modal
             var form = $('#form-modal');
@@ -156,8 +155,12 @@
                     method : 'POST',
                     url : 'bddConn.php',
                     data : data, /*{name = valeur}*/
-                    success: function(){
-                        console.log('titi')
+                    success: function(data){
+                        console.log(data)
+                        if(data != ""){
+                            setCookie('user', data, 10)
+                            formPanne()
+                        }
                     }
                 })
             })

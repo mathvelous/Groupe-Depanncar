@@ -26,7 +26,7 @@ $(document).ready(function () {
             "                        </div>\n" +
             "                        <div class=\"d-flex justify-content-center\">\n" +
             "                            <label for=\"submit\">Validez votre panne</label>\n" +
-            "                            <input type=\"submit\" data-toggle=\"modal\" data-target=\"#exampleModal\" id=\"submit\">\n" +
+            "                            <input type=\"button\" data-toggle=\"modal\" data-target=\"#exampleModal\" id=\"submit\">\n" +
             "                        </div>\n" +
             "                    </div>")
     }

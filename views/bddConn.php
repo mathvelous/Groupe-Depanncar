@@ -17,8 +17,12 @@ $save = $bdd->query("SELECT * FROM client WHERE email LIKE '". $_POST['email']."
 
 $data = $save->fetch(PDO::FETCH_OBJ);
 
-if (password_verify($_POST['password'], $data->password)) {
-    echo 'Le mot de passe est valide !';
-} else {
-    echo 'Le mot de passe est invalide.';
+if(empty($data)){
+    return "";
 }
+
+if (password_verify($_POST['password'], $data->password)) {
+    echo $_POST['email'];
+}
+
+return "";
