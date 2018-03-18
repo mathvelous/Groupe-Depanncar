@@ -1,0 +1,94 @@
+aside{
+    background-color: #130F26;
+    padding:20px 0;
+}
+
+aside div{
+    margin-bottom: 20px;
+}
+
+main{
+    height: 90vh;
+}
+
+.contacts{
+    background-color: #130f26;
+}
+
+.pp{
+    width:30px;
+    height:30px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.pp img {
+    width:100%;
+    height:100%;
+    border-radius: 50%;
+}
+
+.tchat{
+    display: flex;
+    justify-content: center;
+    padding:8px 20px;
+    text-decoration: none;
+    color: white;
+}
+.tchat:hover{background-color: #130f3a;
+    text-decoration: none;
+    color: white;
+}
+.tchat p{
+    font-size: 0.8em;
+}
+
+.chat-box{
+    background-color: #130f3a;
+    padding: 20px;
+    width:100%;
+    height:100%;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+section{
+    padding: 20px 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.message textarea {
+    width: 100%;
+    height: 100%;
+    border-radius: 3px;
+}
+
+.message{
+    flex-basis: 20%;
+}
+
+.chat-result{
+    flex-basis: 80%
+}
+
+.text{
+    background-color: white;
+    padding:10px;
+    font-size: 1em;
+    flex-basis: 90%;
+}
+.picture{
+    flex-basis:10%;
+}
+
+.client-message{
+    display: flex;
+    justify-content: flex-end;
+}
+.meca-message{
+    display: flex;
+    justify-content: flex-start;
+}

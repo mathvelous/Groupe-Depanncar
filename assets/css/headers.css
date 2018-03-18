@@ -17,13 +17,7 @@ header{
     width: auto;
 }
 
-#form-conn{
-    display: flex;
-    height: 50%;
-    width: 40%;
-}
-
-#form-conn .form-control{
+.form-control{
     margin-right: 15px;
 }
 
@@ -35,14 +29,13 @@ header{
     font-size: 0.8rem;
 }
 
-.btn-primary{
-    height: 100%;
+.btn-primary {
+    height: 50%;
     background-color: transparent;
     border: 1px solid #ffffff;
     font-size: 0.8rem;
     transition: all ease 0.3s;
 }
-
 .btn-primary:hover{
     background-color: #ffffff;
     border: 1px solid #ffffff;

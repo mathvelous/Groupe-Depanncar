@@ -24,38 +24,7 @@
         <?php
             include 'map.html';
         ?>
-        <div class="col-6"></div>
-        <div class="form-div">
-            <form id="formClient" class="bgform col-6 center">
-                <div>
-                    <div class="form-group">
-                        <label for="firstname">Prénom</label>
-                        <input name="firstname" type="text" class="form-control" id="firstname" aria-describedby="firstnameHelp">
-                    </div>
-                    <div class="form-group">
-                        <label for="lastname">Nom</label>
-                        <input name="lastname"  type="text" class="form-control" id="lastname" aria-describedby="lastnameHelp">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input name="email" type="email" class="form-control" id="email" aria-describedby="emailHelp">
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Mot de passe</label>
-                        <input name="password" type="password" class="form-control" id="password">
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Téléphone</label>
-                        <input name="phone" type="text" class="form-control" id="phone">
-                    </div>
-                    <div class="form-check">
-                        <input name="checkbox" type="checkbox" class="form-check-input" id="checkbox">
-                        <label class="form-check-label" for="checkbox">J’accepte les Conditions Générales</label>
-                    </div>
-                    <button type="submit" class="btn">Enregistrer</button>
-                </div>
-            </form>
-        </div>
+
     </main>
 
     <script>

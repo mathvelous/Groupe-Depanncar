@@ -73,10 +73,6 @@ session_start();
                 </div>
             </div>
 
-        <button type="button" class="btn btn-primary"  >
-            Launch demo modal
-        </button>
-
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <form id="form-modal" class="modal-dialog" role="document">
@@ -89,8 +85,8 @@ session_start();
                         <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-secondary">Submit</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annulé</button>
+                        <button type="submit" class="btn btn-secondary">Connexion</button>
                     </div>
                 </div>
             </form>
