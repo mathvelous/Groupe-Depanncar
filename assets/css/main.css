@@ -1,7 +1,7 @@
 @font-face {
-    font-family: 'bebasBold';
-    src: url('../font/bebasneue_bold-webfont.woff2') format('woff2'),
-    url('../font/bebasneue_bold-webfont.woff') format('woff');
+    font-family: 'bebas_neue_regularregular';
+    src: url('../font/bebasneue_regular-webfont.woff2') format('woff2'),
+    url('../font/bebasneue_regular-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
@@ -23,9 +23,11 @@
 }
 
 a{
-    font-family: 'bebasBold';
+    color: #ffffff;
     text-transform: uppercase;
-    letter-spacing: 2px;
+}
+a:hover{
+    color: #130F26;
 }
 
 a:hover{
@@ -33,9 +35,8 @@ a:hover{
 }
 
 button{
-    font-family: 'bebasBold';
+    font-family: 'bebas_neue_regularregular';
     text-transform: uppercase;
-    letter-spacing: 2px;
 }
 
 body{
@@ -99,7 +100,7 @@ body{
 }
 
 h1{
-    font-family:'bebasBold';
+    font-family:'bebas_neue_regularregular';
     text-transform: uppercase;
     font-size: 1.8rem;
     color: #130F26;
@@ -107,18 +108,18 @@ h1{
 }
 
 h2{
-    font-family:'Montserrat', sans-serif;
+    font-family:'bebas_neue_regularregular', sans-serif;
     font-size: 1.2rem;
     color: #272957;
 }
 
 
+
 h3{
-    font-family:'bebasBold', sans-serif;
+    font-family:'bebas_neue_regularregular', sans-serif;
     font-size: 1.2rem;
     color: #272957;
     text-transform: uppercase;
-    letter-spacing: 2px;
 }
 
 .main-home{
@@ -349,8 +350,7 @@ input[type="radio"]{
     color: #ffffff;
     font-size: 1.5rem;
     text-transform: uppercase;
-    font-family: 'bebasBold';
-    letter-spacing: 2px;
+    font-family: 'bebas_neue_regularregular';
 }
 
 #form-panne div:last-child{
@@ -412,7 +412,7 @@ label{
 #step4 label{
     color: #130F26;
     text-transform: uppercase;
-    font-family: 'bebasBold', sans-serif;
+    font-family: 'bebas_neue_regularregular', sans-serif;
     letter-spacing: 0.5px;
     margin-bottom: 0;
 }
@@ -510,5 +510,14 @@ label{
 
 /********/
 
+#buttonConn{
+    font-family: 'bebas_neue_regularregular', sans-serif;
+    position: relative;
+    right: -100%;
+    letter-spacing: 2px;
+}
 
+/*#buttonConn2{
+    display: none;
+}*/
 

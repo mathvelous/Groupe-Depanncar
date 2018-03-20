@@ -93,6 +93,10 @@ session_start();
         </div>
     </div>
 
+    <button id="buttonConn" type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-primary">
+        Connexion
+    </button>
+
     <script src="../assets/js/cookie.js"></script>
     <script src="../assets/js/form-panne.js"></script>
     <script>
@@ -149,7 +153,7 @@ session_start();
                 var data = $(this).serialize();
                 $.ajax({
                     method : 'POST',
-                    url : 'bddConn.php',
+                    url : 'bddConnC.php',
                     data : data, /*{name = valeur}*/
                     success: function(data){
                         console.log(data)
@@ -159,6 +163,17 @@ session_start();
                         }
                     }
                 })
+            })
+
+
+            //Link Profil
+            $('#linkProfil').on("click", function () {
+                if(getCookie("user") != ""){
+                    this.setAttribute('href', 'client-profil.php')
+                    this.click()
+                }else {
+                    $('#buttonConn').click()
+                }
             })
 
         })

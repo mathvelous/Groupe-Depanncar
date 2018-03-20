@@ -26,7 +26,7 @@
                     <a href="index.php"><img src="assets/images/logo.png" alt="Logo Depanncar"></a>
                 </div>
             </nav>
-            <button type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-primary">
+            <button id="buttonConn" type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-primary">
                 Connexion
             </button>
             <!-- Modal -->
@@ -107,12 +107,14 @@
             </section>
 
         </main>
+
+        <script src="assets/js/cookie.js"></script>
     <script>
         $(document).ready(function () {
 
             function aPage() {
                 var a = document.createElement('a')
-                a.setAttribute('href', 'views/client-profil.php')
+                a.setAttribute('href', 'views/mecano-profil.php')
                 a.click();
             }
 
@@ -124,11 +126,12 @@
                 var data = $(this).serialize();
                 $.ajax({
                     method : 'POST',
-                    url : 'views/bddConn.php',
+                    url : 'views/bddConnM.php',
                     data : data, /*{name = valeur}*/
                     success: function(data){
                         if(data != ""){
-                            setCookie('user', data, 10)
+                            console.log('toto')
+                            setCookie('mecano', data, 10)
                             aPage()
                         }
                     }
@@ -138,10 +141,12 @@
             $('#aMecano').on('click',function () {
                 $('#choiceHome').fadeOut(500)
                 $('.bgform').animate({right:'0vw'})
+                $('#buttonConn').animate({right:'2vw'})
             })
             $('.prev').on('click',function () {
                 $('#choiceHome').fadeIn(500)
                 $('.bgform').animate({right:'-100%'})
+                $('#buttonConn').animate({right:'-100%'})
             })
 
             var form = $('#formMecano');

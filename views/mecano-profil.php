@@ -6,7 +6,7 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="../assets/css/main.css">
-    <link rel="stylesheet" href="../assets/css/mecano-profil.css">
+    <link rel="stylesheet" href="../assets/css/profils.css">
 
     <script
             src="http://code.jquery.com/jquery-3.3.1.min.js"
@@ -51,13 +51,30 @@
                 die("Error: ". $e);
             }
 
-            $save = $bdd->query('SELECT firstname FROM mecano');
+            $save = $bdd->query("SELECT * FROM mecano WHERE email LIKE '" . $_COOKIE['mecano'] . "'");
 
             while ($data = $save->fetch()){
                 ?>
+                <div class="row justify-content-center">
+                    <p class="mr-2">
+                        <?php
+                            echo $data['firstname'];
+                        ?>
+                    </p>
+                    <p>
+                        <?php
+                        echo $data['lastname'];
+                        ?>
+                    </p>
+                </div>
                 <p>
                     <?php
-                        echo $data['firstname'];
+                    echo $data['phone'];
+                    ?>
+                </p>
+                <p>
+                    <?php
+                    echo $data['email'];
                     ?>
                 </p>
                 <?php
@@ -69,16 +86,39 @@
     <section class="col-10 p-4">
         <div class="w-100 d-flex justify-content-between">
             <h3>Mes demandes</h3>
-            <a href="#">
+            <a id="disconnect" href="#">
                 <h3>Déconnexion</h3>
             </a>
+            <article class="card-demande">
+                <div class="card-demande__thumb">
+                    <img src="../assets/images/car-pic.jpg" alt="Photo card mini couper rouge" >
+                </div>
+                <div class="card-demande_chat">
+                    <a href="#"><img src="../assets/images/icon_chat.svg" alt="chat icon"></a>
+                </div>
+                <div class="card-demande__body">
+                    <h2 class="card-demande__title"><a href="#">NOM DU CLIENT</a></h2>
+                    <p class="card-demande__subtitle-1">LIEU</p>
+                    <p class="card-demande__subtitle">Info Voiture</p>
+                    <h3 class="card-demande__title m-t">DESCRIPTION DE LA PANNE</h3>
+                    <p class="card-demande__description">Description de la panne. Gloria, ut aedificio, ut vestitu cultuque corporis, animante virtute praedito, eo qui vel amare vel, ut ita dicam, redamare possit.</p>
+                </div>
+                <footer class="card-demande__footer">
+                    <button>ACCEPTER</button>
+                    <button>REFUSER</button>
+                </footer>
+            </article>
         </div>
-        <section>
-        </section>
     </section>
 </main>
-<script>
 
+<script src="../assets/js/cookie.js"></script>
+<script>
+    $('#disconnect').on("click", function () {
+        setCookie('mecano',"",0)
+        this.setAttribute('href', '../index.php')
+        this.click()
+    })
 </script>
 </body>
 </html>

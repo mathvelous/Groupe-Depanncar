@@ -1,3 +1,11 @@
+@font-face {
+    font-family: 'bebas_neue_regularregular';
+    src: url('../font/bebasneue_regular-webfont.woff2') format('woff2'),
+    url('../font/bebasneue_regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 header{
     height: 10vh;
     background-color: #130F26;
