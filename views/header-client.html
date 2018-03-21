@@ -25,15 +25,38 @@
         </div>
         <ul>
             <li><a href="#" id="linkProfil">Profil</a></li>
-            <li><a href="chat.php">Chat</a></li>
-            <li><a href="map-client.php">Map</a></li>
+            <li><a href="chat-client.php">Chat</a></li>
+            <li><a href="map-client.php" >Map</a></li>
         </ul>
-        <button type="button" class="btn btn-primary"><a href="map-client.php">Déclarez votre panne</a></button>
+       <a class="btn btn-primary" href="map-client.php">Déclarez votre panne</a>
     </nav>
     <div>
-        <a href="chat.php"><img class="chat" src="../assets/images/chat.png" alt="Chat"></a>
+        <a href="chat-client.php"><img class="chat" src="../assets/images/chat.png" alt="Chat"></a>
     </div>
-</header>
 
+
+    <button id="buttonConn2" type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-primary">
+        Connexion
+    </button>
+
+    <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <form id="form-modal" class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Connectez vous</h5>
+                        </div>
+                        <div class="modal-body">
+                            <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                            <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annulé</button>
+                            <button type="submit" class="btn btn-secondary">Connexion</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+</header>
 </body>
 </html>

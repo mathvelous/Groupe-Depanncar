@@ -1,16 +1,18 @@
-<style>
-        /* Always set the map height explicitly to define the size of the div
-         * element that contains the map. */
-        #map {
-            height: 90vh;
-        }
-        /* Optional: Makes the sample page fill the window. */
-        html, body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
-    </style>
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>Depanncar</title>
+
+
+        <link rel="stylesheet" href="../assets/css/map.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css"
+        integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S"
+        crossorigin="anonymous">
+</head>
+<body>
 
 <div id="map"></div>
 <script>
@@ -21,15 +23,71 @@
 
     function initMap() {
 
+        var place = [{lat: 48.866667, lng: 2.333333}, {lat: 48.860642, lng: 2.352245000000039}, {lat: 48.8706292, lng: 2.3663669999999684},
+        {lat: 48.87490769999999, lng: 2.3535087000000203}, {lat: 48.85542, lng: 2.3449869999999464}, {lat: 48.8531827, lng: 2.3691443000000163}];
+
         var map = new google.maps.Map(document.getElementById('map'), {
-            center: {lat: -34.397, lng: 150.644},
-            zoom: 15,
+            center: place[2],
+            zoom: 14,
             disableDefaultUI: true
         });
-        var infoWindow = new google.maps.InfoWindow({map: map});
+
+          var contentString = `<section class="card">
+                    <div class="profil">
+                        <div class="profil-pic">
+                        </div>
+                        <div class="profil-description">
+                            <strong class="name">DUPONT ERIC</strong>
+                            <p class="location">Levallois-Perret</p>
+                            <p class="text-dark">
+                                 <i class="fa fa-star checked"></i>
+                                 <i class="fa fa-star checked"></i>
+                                 <i class="fa fa-star checked"></i>
+                                 <i class="fa fa-star checked"></i>
+                                 <i class="fa fa-star"></i>
+                            </p>
+                        </div>
+                        <div class="msg">
+                            <img src="../assets/images/chat.png">
+                        </div>
+                    </div>
+                        <p class="description"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur debitis error facere fuga id magni!</p>
+                    <div class="btn-center">
+                        <input class="send-msg" type="submit" value="Envoyer une demande"/>
+                    </div>
+                    </section>`
+
+        var infoWindow = new google.maps.InfoWindow({
+            map: map,
+            content: contentString,
+            maxWidth: 280
+        });
+
+          function markerClick(marker) {
+              marker.addListener('click', function() {
+                  infoWindow.open(marker.get('map'), marker)
+                  $('.card').parent().parent().parent().parent().parent().addClass('replaceMarker')
+                  document.querySelector('.msg').addEventListener("click", function() {
+                        $('.mini-chat').animate({right:'0'})
+                  })
+                });
+
+              }
+
+        for (let i=0; i<place.length; i++){
+            var marker = new google.maps.Marker({
+                        position: place[i],
+                        icon: {url:"../assets/images/puce.png",
+                        size: new google.maps.Size(80, 100),
+                        anchor: new google.maps.Point(22, 45),
+                        scaledSize: new google.maps.Size(40, 60)},
+                        map: map
+                    });
+            markerClick(marker)
+        }
 
         // Try HTML5 geolocation.
-        if (navigator.geolocation) {
+        /*if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function(position) {
                 var pos = {
                     lat: position.coords.latitude,
@@ -37,7 +95,7 @@
                 };
 
                 infoWindow.setPosition(pos);
-                infoWindow.setContent('Location found.');
+                infoWindow.setContent(contentString);
                 map.setCenter(pos);
             }, function() {
                 handleLocationError(true, infoWindow, map.getCenter());
@@ -45,9 +103,8 @@
         } else {
             // Browser doesn't support Geolocation
             handleLocationError(false, infoWindow, map.getCenter());
-        }
+        }*/
         var styledMapType = new google.maps.StyledMapType(
-            /* coller ici le js style de map */
             [
               {
                 "elementType": "geometry",
@@ -335,3 +392,6 @@
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAVxxP5MUCFNJOvrSqvwOIa1KXWfdXfn1g&callback=initMap"
         async defer></script>
+
+</body>
+</html>

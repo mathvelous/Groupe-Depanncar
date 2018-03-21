@@ -7,10 +7,10 @@
  */
 
 
-    $servername = "localhost";
-    $username = "root";
-    $password = "root";
-    $dbname = "depanncar";
+$servername = "mysql-mathvelous.alwaysdata.net";
+$username = "155185_depanncar";
+$password = "totolola42";
+$dbname = "mathvelous_depanncar";
 
     try {
         //for windows

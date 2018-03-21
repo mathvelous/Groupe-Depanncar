@@ -37,10 +37,10 @@
         </article>
         <article class="text-white text-center">
             <?php
-            $servername = "localhost";
-            $username = "root";
-            $password = "root";
-            $dbname = "depanncar";
+            $servername = "mysql-mathvelous.alwaysdata.net";
+            $username = "155185_depanncar";
+            $password = "totolola42";
+            $dbname = "mathvelous_depanncar";
 
             try {
                 //for windows
@@ -81,7 +81,7 @@
             }
             ?>
         </article>
-        <a href="#" class="text-white">Mes projets</a>
+        <a href="mecano-profil-projet.php" class="text-white">Mes projets</a>
     </aside>
     <section class="col-10 p-4">
         <div class="w-100 d-flex justify-content-between">
@@ -94,7 +94,7 @@
                     <img src="../assets/images/car-pic.jpg" alt="Photo card mini couper rouge" >
                 </div>
                 <div class="card-demande_chat">
-                    <a href="#"><img src="../assets/images/icon_chat.svg" alt="chat icon"></a>
+                    <a href="chat-client.php"><img src="../assets/images/icon_chat.svg" alt="chat icon"></a>
                 </div>
                 <div class="card-demande__body">
                     <h2 class="card-demande__title"><a href="#">NOM DU CLIENT</a></h2>

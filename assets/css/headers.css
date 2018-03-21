@@ -13,6 +13,8 @@ header{
     align-items: center;
     padding: 0 15px 0 15px;
     justify-content: space-between;
+    font-family: 'bebas_neue_regularregular';
+    letter-spacing: 2px;
 }
 
 .logo a img{
@@ -43,6 +45,7 @@ header{
     border: 1px solid #ffffff;
     font-size: 0.8rem;
     transition: all ease 0.3s;
+    color: #ffffff;
 }
 .btn-primary:hover{
     background-color: #ffffff;
@@ -67,6 +70,7 @@ header{
 .menu ul li{
     list-style: none;
     padding: 20px;
+    color: white;
 }
 
 .menu ul li a{

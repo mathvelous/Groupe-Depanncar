@@ -23,7 +23,6 @@
 }
 
 a{
-    color: #ffffff;
     text-transform: uppercase;
 }
 a:hover{
@@ -333,6 +332,8 @@ input[type="radio"]{
     padding: 10px 20px 10px 20px;
     background-color: transparent;
     transition: all ease 0.3s;
+    letter-spacing: 2px;
+    font-weight: 600;
 }
 
 .declare:hover{
@@ -437,7 +438,7 @@ label{
     letter-spacing: 1px;
 }
 
-#step4 input[type="submit"]{
+#step4 input[type="button"]{
     display: none;
 }
 
@@ -446,6 +447,8 @@ label{
     justify-content: flex-end;
 
 }
+
+
 
 /**** Modal ****/
 
@@ -517,7 +520,13 @@ label{
     letter-spacing: 2px;
 }
 
-/*#buttonConn2{
+#buttonConn2{
     display: none;
-}*/
+}
+
+
+.container-map{
+    height: 100vh;
+    overflow: hidden;
+}
 

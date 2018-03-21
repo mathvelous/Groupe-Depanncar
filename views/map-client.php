@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <!doctype html>
 <html lang="fr">
 <head>
@@ -13,6 +10,7 @@ session_start();
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/asides.css">
 
     <script
         src="http://code.jquery.com/jquery-3.3.1.min.js"
@@ -20,9 +18,9 @@ session_start();
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 </head>
 <body>
+<div class="container-map">
     <?php
         include 'header-client.html';
     ?>
@@ -73,30 +71,54 @@ session_start();
                 </div>
             </div>
 
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <form id="form-modal" class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Connectez vous</h5>
+        <!-- Aside chat -->
+        <aside class="d-flex flex-column align-items-center mini-chat">
+            <div class="text-white d-flex flex-column align-items-center profile">
+                <div class="pp-large pp-meca mb-3"></div>
+                <div class="text-white">
+                    <h6>Michel Bernier</h6>
+                </div>
+                <p>
+                    <i class="fa fa-star checked"></i>
+                    <i class="fa fa-star checked"></i>
+                    <i class="fa fa-star checked"></i>
+                    <i class="fa fa-star checked"></i>
+                    <i class="fa fa-star"></i>
+                </p>
+            </div>
+            <section>
+                <div class="chat-box d-flex">
+                    <div class="chat-result">
+                        <div class="meca-message">
+                            <div class="d-flex flex-row">
+                                <div class="d-flex justify-content-end align-items-center picture">
+                                    <div class="pp"><img src="../assets/images/mecano-profil.jpg" alt="profil du mécancien"></div>
+                                </div>
+                                <div class="text">
+                                    <p>Bonjour, j'accepte votre demande</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="client-message ">
+                            <div class="d-flex flex-row-reverse">
+                                <div class="d-flex justify-content-end align-items-center picture">
+                                    <div class="pp"><img src="../assets/images/client-profil.jpg" alt="profil du client"></div>
+                                </div>
+                                <div class="text">
+                                    <p>Bonjour, merci. Rdv au chalet à 8h</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="modal-body">
-                        <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                        <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annulé</button>
-                        <button type="submit" class="btn btn-secondary">Connexion</button>
+                    <div class="message">
+                        <textarea name="message" id="message"placeholder="tapez votre message"></textarea>
                     </div>
                 </div>
-            </form>
-        </div>
+            </section>
+        </aside>
+
     </div>
-
-    <button id="buttonConn" type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-primary">
-        Connexion
-    </button>
-
+</div>
     <script src="../assets/js/cookie.js"></script>
     <script src="../assets/js/form-panne.js"></script>
     <script>
@@ -143,7 +165,6 @@ session_start();
                         }
                     })
             }
-
             //Modal
             var form = $('#form-modal');
 
@@ -172,7 +193,17 @@ session_start();
                     this.setAttribute('href', 'client-profil.php')
                     this.click()
                 }else {
-                    $('#buttonConn').click()
+                    $('#buttonConn2').click()
+                }
+            })
+
+            //Link chat
+            $('#linkChat').on("click",function () {
+                if(getCookie("user") != ""){
+                    this.setAttribute('href', 'chat-c lient.php')
+                    this.click()
+                }else {
+                    $('#buttonConn2').click()
                 }
             })
 
