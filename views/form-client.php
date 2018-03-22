@@ -18,12 +18,9 @@
 </head>
 <body>
     <?php
-        include 'header-conn.html';
+        include 'header-client.html';
     ?>
-<main class="container-fluid map">
-    <?php
-        include 'map.html';
-    ?>
+<main class="container-fluid bg-home">
     <div class="col-6"></div>
     <div class="form-div">
         <form id="formClient" class="bgform col-6 center">
@@ -67,9 +64,10 @@
             method : 'POST',
             url : 'bddClient.php',
             data : data, /*{name = valeur}*/
-            dataType :"json",
             success: function(msg){
-
+                var a = document.createElement('a')
+                a.setAttribute('href', 'client-profil.php')
+                a.click();
             }
         })
     })

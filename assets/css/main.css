@@ -175,9 +175,20 @@ h3{
     height: 90vh;
     position: absolute;
     top: 10vh;
-    right: -100%;
-    z-index: 10;
+    right: 0;
+    z-index: 20;
 }
+
+.bgform3{
+    background-color: #ffffff;
+    width: 45vw;
+    height: 90vh;
+    position: absolute;
+    top: 10vh;
+    right: -100%;
+    z-index: 20;
+}
+
 
 .center{
     display: flex;
@@ -190,7 +201,7 @@ h3{
 
 .bgform2{
     background-color: #ffffff;
-    width: 100%;
+    width: 45vw;
     height: 90vh;
     position: absolute;
     top: 0;

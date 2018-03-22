@@ -71,7 +71,7 @@
             <section>
                 <div class="col-6"></div>
                 <div class="form-div">
-                    <form id="formMecano" class="bgform col-6 center">
+                    <form id="formMecano" class="bgform3 col-6 center">
                         <div class="prev">
                             <img src="assets/images/prev.png" alt="Retour">
                         </div>
@@ -105,7 +105,6 @@
                     </form>
                 </div>
             </section>
-
         </main>
 
         <script src="assets/js/cookie.js"></script>
@@ -146,12 +145,12 @@
 
             $('#aMecano').on('click',function () {
                 $('#choiceHome').fadeOut(500)
-                $('.bgform').animate({right:'0vw'})
+                $('.bgform3').animate({right:'0vw'})
                 $('#buttonConn').animate({right:'2vw'})
             })
             $('.prev').on('click',function () {
                 $('#choiceHome').fadeIn(500)
-                $('.bgform').animate({right:'-100%'})
+                $('.bgform3').animate({right:'-100%'})
                 $('#buttonConn').animate({right:'-100%'})
             })
 

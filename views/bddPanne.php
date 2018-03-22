@@ -21,7 +21,7 @@ $dbname = "mathvelous_depanncar";
         die("Error: ". $e);
     }
     print_r($_POST);
-    $conn = $bdd->query("INSERT INTO panne (step1, step2, step3, more, car, year) VALUES ('" . $_POST['step1'] . "', '" . $_POST['step2'] . "', '" . $_POST['step3'] . "', '" . $_POST['more'] . "', '" . $_POST['car'] . "', '" . $_POST['year'] . "')");
+    $conn = $bdd->query("INSERT INTO panne (step1, step2, step3, more, car, year, email) VALUES ('" . $_POST['step1'] . "', '" . $_POST['step2'] . "', '" . $_POST['step3'] . "', '" . $_POST['more'] . "', '" . $_POST['car'] . "', '" . $_POST['year'] . "', '" .$_POST['mail'] . "')");
     // use exec() because no results are returned
     //echo "New record created successfully";
 

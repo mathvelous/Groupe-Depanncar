@@ -6,6 +6,7 @@
     font-style: normal;
 }
 
+* { box-sizing: border-box; }
 
 aside{
     background: linear-gradient(to bottom right, #130F25, #272957);
@@ -393,5 +394,103 @@ main{
     overflow: hidden;
 }
 
+
+/******* Card Projet ******/
+
+.card-projet{
+    position: absolute;
+    width: 300px;
+    height: 270px;
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(0,0,0, 0.1);
+    transition: box-shadow 0.3s;
+    margin-top: 30px;
+}
+.card-projet__title a{
+    text-decoration: none;
+    color: #130F25;
+}
+.card-projet:hover {
+    box-shadow: 0 0 50px rgba(0,0,0,0.3);
+}
+.card-projet-modif {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    padding-top: 10px;
+    background-color: #130F25;
+    border-radius: 50%;
+    text-align: center;
+    transform: scale(1);
+    transition: 0.3s;
+}
+.card-projet-modif:hover {
+    transform: scale(1.2);
+}
+.header-card-projet{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.card-projet__thumb {
+    height: 180px;
+    overflow: hidden;
+    background-color:#130F25;
+    transition: height 0.3s;
+}
+.card-projet__thumb img{
+    display: block;
+    opacity: 1;
+    transition: opacity 0.3s, transform 0.3s;
+}
+.card-projet:hover .card-projet__thumb {
+    height: 100px;
+}
+.card-projet__body{
+    position: relative;
+    padding: 20px;
+    /*height: ;*/
+    transition: height 0.3s;
+}
+.card-projet:hover .card-projet__body{
+    height: 160px;
+}
+.mt-5{
+    margin-top: 5px;
+}
+.card-projet__description{
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    bottom: 10px;
+    margin: 0;
+    padding: 0;
+    color: #130F25;
+    font-size: 13px;
+    line-height: 16px;
+    font-family: "Open Sans", sans-serif;
+    opacity: 0;
+    transition: opacity 0, 3s - 0.1s, transform 0, 3s - 0.1s;
+    transition-delay: 0s;
+    transform: translateY(25px);
+}
+.card-projet:hover .card-projet__description{
+    opacity: 1;
+    transition-delay: 0.1s;
+    transform: translateY(0);
+    font-family: "Open Sans", sans-serif;
+}
+.card-projet__title{
+    font-family: "bebas_neue_regularregular", sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    color: #130F25;
+}
+
+.card-projet .card-projet__title{
+    animation: titleBlur 0.3s;
+}
 
 

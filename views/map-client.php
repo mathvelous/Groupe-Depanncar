@@ -151,8 +151,9 @@
 
 
             // Ajax form panne bdd
-            function formPanne() {
-                var data = $('#form-panne').serialize();
+            function formPanne(email) {
+                var data = $('#form-panne').serialize() + "&mail=" + email;
+                console.log(data)
                     $.ajax({
                         method : 'POST',
                         url : 'bddPanne.php',
@@ -180,7 +181,11 @@
                         console.log(data)
                         if(data != ""){
                             setCookie('user', data, 10)
-                            formPanne()
+                            formPanne(data)
+                        }else{
+                            var a = document.createElement('a')
+                            a.setAttribute('href', '../index.php')
+                            a.click();
                         }
                     }
                 })
