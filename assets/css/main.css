@@ -6,6 +6,10 @@
     font-style: normal;
 }
 
+.vh50{
+    height: 50vh;
+}
+
 .container-fluid{
     margin: 0;
     padding: 0;
@@ -313,12 +317,19 @@ input[type="radio"]{
 
 .label-radio{
     position: relative;
+
 }
 
 .label-radio img{
     margin-top: 30px;
     width: 95%;
     height: auto;
+    transition: all ease 0.5s;
+}
+
+.label-radio img:hover{
+    box-shadow: 5px 5px 5px rgba(154, 153, 153, 0.7);
+
 }
 
 .declare{
@@ -370,6 +381,7 @@ input[type="radio"]{
 .form-section label img{
     width: 100%;
     height: auto;
+    transition: all ease 1s;
 }
 
 .column{

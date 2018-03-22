@@ -16,74 +16,135 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 </head>
 <body>
-<div>
-    <?php include 'header-client.html'?>
-</div>
-<main class="p-0 d-flex">
-    <aside class="col-sm-2 p-4 d-flex flex-column align-items-center">
-        <div class="profil-pic d-flex flex-column  align-items-center">
-        </div>
-        <article class="info-profil d-flex flex-column  align-items-center">
-            <?php
-            $servername = "mysql-mathvelous.alwaysdata.net";
-            $username = "155185_depanncar";
-            $password = "totolola42";
-            $dbname = "mathvelous_depanncar";
+<div class="container-profil">
+    <div>
+        <?php include 'header-client.html'?>
+    </div>
+    <main class="p-0 d-flex">
+        <aside class="col-sm-2 p-4 d-flex flex-column align-items-center">
+            <div class="profil-pic d-flex flex-column  align-items-center">
+            </div>
+            <article class="info-profil d-flex flex-column  align-items-center">
+                <?php
+                $servername = "mysql-mathvelous.alwaysdata.net";
+                $username = "155185_depanncar";
+                $password = "totolola42";
+                $dbname = "mathvelous_depanncar";
 
-            try {
-                //for windows
-                //$db = new PDO('mysql:host=' . $servername . ';dbname=' . $dbname . ';charset=utf8', $username, '');
-                //for mac
-                $bdd = new PDO('mysql:host=' . $servername . ';dbname=' . $dbname . ';charset=utf8', $username, $password);
-            } catch(Exception $e) {
-                die("Error: ". $e);
-            }
+                try {
+                    //for windows
+                    //$db = new PDO('mysql:host=' . $servername . ';dbname=' . $dbname . ';charset=utf8', $username, '');
+                    //for mac
+                    $bdd = new PDO('mysql:host=' . $servername . ';dbname=' . $dbname . ';charset=utf8', $username, $password);
+                } catch(Exception $e) {
+                    die("Error: ". $e);
+                }
 
-            $save = $bdd->query("SELECT * FROM client WHERE email LIKE '" . $_COOKIE['user'] . "'");
+                $save = $bdd->query("SELECT * FROM client WHERE email LIKE '" . $_COOKIE['user'] . "'");
 
-            while ($data = $save->fetch()){
-                ?>
-                <div class="row justify-content-center">
-                    <p class="mr-2">
-                        <?php
-                        echo $data['firstname'];
-                        ?>
-                    </p>
+                while ($data = $save->fetch()){
+                    ?>
+                    <div class="row justify-content-center">
+                        <p class="mr-2">
+                            <?php
+                            echo $data['firstname'];
+                            ?>
+                        </p>
+                        <p>
+                            <?php
+                            echo $data['lastname'];
+                            ?>
+                        </p>
+                    </div>
                     <p>
                         <?php
-                        echo $data['lastname'];
+                        echo $data['email'];
                         ?>
                     </p>
-                </div>
-                <p>
                     <?php
-                    echo $data['email'];
-                    ?>
-                </p>
-                <?php
-            }
-            ?>
-        </article>
-        <p class="save-car"> VEHICULES ENREGISTRES </p>
-        <div class="card" style="width: 12rem;">
-            <div class="img-car"></div>
-            <div class="card-body">
-                <div class=" car-brand d-flex justify-content-between align-items-center">
-                    <strong class="brand" >MINI COOPER</strong>
-                    <p class="license-plate"> 936-BZY-57 </p>
+                }
+                ?>
+            </article>
+            <p class="save-car"> VEHICULES ENREGISTRES </p>
+            <div class="card" style="width: 12rem;">
+                <div class="img-car"></div>
+                <div class="card-body">
+                    <div class=" car-brand d-flex justify-content-between align-items-center">
+                        <strong class="brand" >MINI COOPER</strong>
+                        <p class="license-plate"> 936-BZY-57 </p>
+                    </div>
+                    <p class="km">555 000km</p>
                 </div>
-                <p class="km">555 000km</p>
             </div>
-        </div>
-        <button class="add-car d-flex align-items-center"> AJOUTER UN VEHICULE <span> + </span></button>
-    </aside>
-    <section class="col-10 p-4">
-        <div class="w-100 d-flex justify-content-between">
-            <h3>Ma panne</h3>
-            <a id="disconnect" href="#">
-                <h3>Déconnexion</h3>
-            </a>
-        </div>
+            <button class="add-car d-flex align-items-center"> AJOUTER UN VEHICULE <span> + </span></button>
+        </aside>
+
+        <section class="col-10 p-4">
+            <div class="w-100 d-flex justify-content-between vh50">
+                <h3>Ma panne</h3>
+                <a id="disconnect" href="#">
+                    <h3>Déconnexion</h3>
+                </a>
+                <article class="card-demande2">
+                    <div class="card-demande__thumb">
+                        <img src="../assets/images/car-pic.jpg" alt="Photo card mini couper rouge" >
+                    </div>
+                    <div class="card-demande__body">
+                        <p class="card-demande__subtitle">Info Voiture</p>
+                        <h3 class="card-demande__title m-t">DESCRIPTION DE LA PANNE</h3>
+                        <p class="card-demande__description2">
+                            <?php
+                            $servername = "mysql-mathvelous.alwaysdata.net";
+                            $username = "155185_depanncar";
+                            $password = "totolola42";
+                            $dbname = "mathvelous_depanncar";
+
+                            try {
+                                //for windows
+                                //$db = new PDO('mysql:host=' . $servername . ';dbname=' . $dbname . ';charset=utf8', $username, '');
+                                //for mac
+                                $bdd = new PDO('mysql:host=' . $servername . ';dbname=' . $dbname . ';charset=utf8', $username, $password);
+                            } catch(Exception $e) {
+                                die("Error: ". $e);
+                            }
+
+                            $save = $bdd->query("SELECT * FROM panne");
+
+                                while ($data = $save->fetch()){
+                                    echo $data['step1'];
+                                }
+                            ?>
+                        </p>
+                    </div>
+                </article>
+            </div>
+            <div class="w-100 mydemandes vh50">
+                <h3>Mes demandes</dem></h3>
+
+                <article class="card-d-ok">
+                    <div class="card-d-ok-block">
+                        <div class="card-d-ok__thumb"></div>
+                        <div class="card-d-ok-info-mecano">
+                            <div class="card__title">NOM MECANO</div>
+                            <div class="card__subtitle">Ville-CodePostal</div>
+                            <div>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-o"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card_chat">
+                        <a href="chat-client.php"><img src="../assets/images/chat.png" alt="chat icon"></a>
+                    </div>
+                    <div class="card__body">
+                        <p class="card-d-ok__description">Description de la panne. Gloria, ut aedificio, ut vestitu cultuque corporis, animante virtute praedito, eo qui vel amare vel, ut ita dicam, redamare possit.</p>
+                    </div>
+                </article>
+            </div>
+</div>
     </section>
 
     <script src="../assets/js/cookie.js"></script>

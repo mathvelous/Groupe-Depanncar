@@ -87,5 +87,9 @@ session_start();
         </div>
     </section>
 </main>
+<script src="../assets/js/cookie.js"></script>
+<script>
+
+</script>
 </body>
 </html>

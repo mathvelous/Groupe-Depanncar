@@ -84,10 +84,12 @@
         <a href="mecano-profil-projet.php" class="text-white">Mes projets</a>
     </aside>
     <section class="col-10 p-4">
-        <div class="w-100 d-flex justify-content-between">
-            <h3>Mes demandes</h3>
-            <a id="disconnect" href="#">
-                <h3>Déconnexion</h3>
+        <div class="w-100 mydemandes">
+            <div class="d-flex justify-content-between">
+                <h3>Mes demandes</h3>
+                <a id="disconnect" href="#">
+                    <h3>Déconnexion</h3>
+            </div>
             </a>
             <article class="card-demande">
                 <div class="card-demande__thumb">

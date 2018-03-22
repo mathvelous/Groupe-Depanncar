@@ -118,6 +118,13 @@
                 a.click();
             }
 
+            $('#buttonConn').on("click",function () {
+                if(data != ""){
+                    setCookie('mecano', data, 10)
+                    aPage()
+                }
+            })
+
             var form = $('#form-modal');
 
             form.submit(function(e){
@@ -130,7 +137,6 @@
                     data : data, /*{name = valeur}*/
                     success: function(data){
                         if(data != ""){
-                            console.log('toto')
                             setCookie('mecano', data, 10)
                             aPage()
                         }

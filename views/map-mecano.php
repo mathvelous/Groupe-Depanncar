@@ -26,7 +26,7 @@
     ?>
     <div class="map">
         <?php
-        include 'map.html';
+            include 'map.html';
         ?>
     </div>
 </div>

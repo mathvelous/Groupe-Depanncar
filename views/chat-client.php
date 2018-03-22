@@ -87,5 +87,54 @@ session_start();
         </div>
     </section>
 </main>
+
+<script src="../assets/js/cookie.js"></script>
+<script>
+    $(document).ready(function () {
+
+        //Modal
+        var form = $('#form-modal');
+
+        form.submit(function(e){
+            e.preventDefault()
+
+            var data = $(this).serialize();
+            $.ajax({
+                method : 'POST',
+                url : 'bddConnC.php',
+                data : data, /*{name = valeur}*/
+                success: function(data){
+                    console.log(data)
+                    if(data != ""){
+                        setCookie('user', data, 10)
+
+                    }
+                }
+            })
+        })
+
+
+        //Link Profil
+        $('#linkProfil').on("click", function () {
+            if(getCookie("user") != ""){
+                this.setAttribute('href', 'client-profil.php')
+                this.click()
+            }else {
+                $('#buttonConn2').click()
+            }
+        })
+
+        //Link chat
+        $('#linkChat').on("click",function () {
+            if(getCookie("user") != ""){
+                this.setAttribute('href', 'chat-c lient.php')
+                this.click()
+            }else {
+                $('#buttonConn2').click()
+            }
+        })
+
+    })
+</script>
 </body>
 </html>
