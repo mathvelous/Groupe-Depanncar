@@ -108,10 +108,12 @@
                                 die("Error: ". $e);
                             }
 
-                            $save = $bdd->query("SELECT * FROM panne");
+                            $save = $bdd->query("SELECT * FROM panne WHERE email LIKE '" . $_COOKIE['user'] . "'");
 
                                 while ($data = $save->fetch()){
-                                    echo $data['step1'];
+                                    echo $data['step1'] . ' ';
+                                    echo $data['step2'] . '<br>';
+                                    echo $data['step3'];
                                 }
                             ?>
                         </p>

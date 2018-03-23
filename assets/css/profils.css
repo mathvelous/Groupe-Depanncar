@@ -200,7 +200,7 @@ main{
 }
 
 .card-demande2:hover .card-demande__body{
-    height: 130px;
+    height: 100px;
 }
 
 .card-demande__description, .card-demande__description2{
@@ -209,6 +209,7 @@ main{
     right: 20px;
     bottom: 0;
 }
+
 
 .card-demande__description, .card-demande__description2{
     margin: 0;
