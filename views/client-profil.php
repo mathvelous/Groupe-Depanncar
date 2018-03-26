@@ -108,7 +108,7 @@
                                 die("Error: ". $e);
                             }
 
-                            $save = $bdd->query("SELECT * FROM panne WHERE email LIKE '" . $_COOKIE['user'] . "'");
+                            $save = $bdd->query("SELECT * FROM panne WHERE email LIKE '" . $_COOKIE['user'] . "' LIMIT 1");
 
                                 while ($data = $save->fetch()){
                                     echo $data['step1'] . ' ';
