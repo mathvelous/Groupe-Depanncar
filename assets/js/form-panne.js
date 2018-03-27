@@ -26,10 +26,20 @@ $(document).ready(function () {
             "                        </div>\n" +
             "                        <div class=\"d-flex justify-content-center\">\n" +
             "                            <label for=\"submit\">Validez votre panne</label>\n" +
-            "                            <input type=\"button\" data-toggle=\"modal\" data-target=\"#exampleModal\" id=\"submit\">\n" +
+            "                            <input type=\"button\" data-toggle=\"\" data-target=\"#exampleModal\" id=\"submit\">\n" +
             "                        </div>\n" +
             "                    </div>")
+        //Buttun modal
+        $('#submit').on('click',function () {
+            console.log()
+            if($('#car').val() != '' && $('#year').val() != ''){
+                $('#submit').attr('data-toggle', 'modal')
+                $('#submit').click()
+
+            }
+        })
     }
+
 
 
     // function for the form

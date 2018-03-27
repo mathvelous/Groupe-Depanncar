@@ -159,10 +159,9 @@
                         url : 'bddPanne.php',
                         data : data, /*{name = valeur}*/
                         success: function(){
-                            var a = document.createElement('a')
-                            a.setAttribute('href', 'client-profil.php')
-                            a.click();
-
+                                var a = document.createElement('a')
+                                a.setAttribute('href', 'client-profil.php')
+                                a.click();
                         }
                     })
             }
@@ -178,7 +177,6 @@
                     url : 'bddConnC.php',
                     data : data, /*{name = valeur}*/
                     success: function(data){
-                        console.log(data)
                         if(data != ""){
                             setCookie('user', data, 10)
                             formPanne(data)
@@ -190,6 +188,8 @@
                     }
                 })
             })
+
+
 
 
             //Link Profil
