@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <!doctype html>
 <html lang="fr">
 <head>
@@ -27,6 +24,56 @@ session_start();
 <?php
     include 'header-client.html';
 ?>
+<?php
+    $servername = "mysql-mathvelous.alwaysdata.net";
+    $username = "155185_depanncar";
+    $password = "totolola42";
+    $dbname = "mathvelous_depanncar";
+
+    try {
+        //for windows
+        //$db = new PDO('mysql:host=' . $servername . ';dbname=' . $dbname . ';charset=utf8', $username, '');
+        //for mac
+        $bdd = new PDO('mysql:host=' . $servername . ';dbname=' . $dbname . ';charset=utf8', $username, $password);
+    } catch(Exception $e) {
+        die("Error: ". $e);
+    }
+    if(isset($_POST['submit'])){
+        if(!empty($_POST['message'])){
+
+            $message = $_POST['message'];
+            $insertion = $bdd->prepare('INSERT INTO chat VALUES("", :message)');
+            $insertion->execute(array(
+                'message' => $message
+            ));
+        }
+    }
+
+if(!empty($_GET['id'])){ // on vérifie que l'id est bien présent et pas vide
+
+    $id = (int) $_GET['id']; // on s'assure que c'est un nombre entier
+
+    // on récupère les messages ayant un id plus grand que celui donné
+
+    $requete = $bdd->prepare('SELECT * FROM messages WHERE id > :id ORDER BY id DESC');
+
+    $requete->execute(array("id" => $id));
+
+    $messages = null;
+
+    // on inscrit tous les nouveaux messages dans une variable
+
+    while($donnees = $requete->fetch()){
+
+        $messages .= "<p id=\"" . $donnees['id'] . "\">" . $donnees['pseudo'] . " dit : " . $donnees['message'] . "</p>";
+
+    }
+    echo $messages; // enfin, on retourne les messages à notre script JS
+
+
+}
+?>
+
 <main class="container-fluid p-0 d-flex">
     <section class="contacts col-sm-2 p-0">
         <div class="text-white d-flex justify-content-center m-3">
@@ -72,36 +119,36 @@ session_start();
                 </div>
                 <div class="client-message ">
                     <?php
+                        $servername = "mysql-mathvelous.alwaysdata.net";
+                        $username = "155185_depanncar";
+                        $password = "totolola42";
+                        $dbname = "mathvelous_depanncar";
+                        try {
+                            $bdd = new PDO('mysql:host=' . $servername . ';dbname=' . $dbname . ';charset=utf8', $username, $password);
+                        } catch(Exception $e) {
+                            die("Error: ". $e);
+                        }
 
-                    $servername = "mysql-mathvelous.alwaysdata.net";
-                    $username = "155185_depanncar";
-                    $password = "totolola42";
-                    $dbname = "mathvelous_depanncar";
-
-                    try {
-                        //for windows
-                        //$db = new PDO('mysql:host=' . $servername . ';dbname=' . $dbname . ';charset=utf8', $username, '');
-                        //for mac
-                        $bdd = new PDO('mysql:host=' . $servername . ';dbname=' . $dbname . ';charset=utf8', $username, $password);
-                    } catch(Exception $e) {
-                        die("Error: ". $e);
-                    }
-
-                    // on récupère les 10 derniers messages postés
-                    $requete = $bdd->query('SELECT * FROM chat ORDER BY id DESC LIMIT 0,10');
-
-                    while($donnees = $requete->fetch()){
-                        // on affiche le message (l'id servira plus tard)
-                        echo '<p>' . $donnees['message'] . '</p>';
-                    }
-
-                    ?>
-
+                        $requete = $bdd->query('SELECT * FROM chat ORDER BY id DESC LIMIT 0,5');
+                            while($data = $requete->fetch()){
+                        ?>
+                        <div class="col-sm-6 d-flex flex-row">
+                        <div class="text">
+                            <p>
+                                <?php
+                                    echo $data['message'] . '<br>';
+                                ?>
+                            </p>
+                        </div>
+                        </div>
+                        <?php
+                            }
+                        ?>
                 </div>
 
             </div>
             <!---- form chat ----->
-            <form id="formChat" method="POST" action="bddChat.php">
+            <form id="formChat" method="POST" action="chat-client.php">
                 <div class="message p-3">
                     <textarea name="message" id="message" placeholder="tapez votre message"></textarea>
                 </div>
@@ -115,6 +162,47 @@ session_start();
 <script>
     $(document).ready(function () {
 
+        //Envoi form chat
+        $('#envoi').click(function(e){
+
+            e.preventDefault()
+
+            var message = $('#message').val()
+
+            if($('#message').val() != ""){ // on vérifie que les variables ne sont pas vides
+                $.ajax({
+                    type : "POST",
+                    url : "chat-client.php", // on donne l'URL du fichier de traitement
+                    data : message, // et on envoie nos données
+                    success: function(){
+
+                    }
+                });
+            }
+        }
+
+        //Charger les messages
+        function charger(){
+
+            setTimeout( function(){
+
+                var premierID = $('#messages p:first').attr('id'); // on récupère l'id le plus récent
+
+                $.ajax({
+                    url : "chat-client.php?id=" + premierID, // on passe l'id le plus récent au fichier de chargement
+                    type : GET,
+                    success : function(html){
+                        $('#messages').prepend(html);
+                    }
+                });
+
+                charger();
+
+            }, 5000);
+
+        }
+        charger();
+
         //Modal
         var form = $('#form-modal');
 
@@ -127,7 +215,7 @@ session_start();
                 url : 'bddConnC.php',
                 data : data, /*{name = valeur}*/
                 success: function(data){
-                    console.log(data)
+
                     if(data != ""){
                         setCookie('user', data, 10)
 
@@ -157,26 +245,6 @@ session_start();
             }
         })
 
-
-        var form = $('#formChat');
-        form.submit(function(e){
-            e.preventDefault()
-
-           /* var message = encodeURIComponent( $('#message').val() );*/
-
-            var data = $(this).serialize();
-
-            if($('#message').val() != ""){ // on vérifie que les variables ne sont pas vides
-                $.ajax({
-                    type : "POST",
-                    url : "bddChat.php", // on donne l'URL du fichier de traitement
-                    data : data, // et on envoie nos données
-                    success: function(){
-
-                    }
-                });
-            }
-        }
 
 
     })
